@@ -1,13 +1,25 @@
 public class Room {
+    Vector2 roomID;
     Room northRoom;
     Room eastRoom;
     Room southRoom;
     Room westRoom;
 
-    Room(Room n, Room e, Room s, Room w){
-        this.northRoom = n;
-        this.eastRoom = e;
-        this.southRoom = s;
-        this.westRoom = w;
+    Room(Vector2 ID){
+        this.roomID = ID;
     }
+
+    public void AssignNorth(Room room){
+        this.northRoom = room;
+    }
+    public void AssignEast(Room room){
+        this.eastRoom = room;
+    }
+    public void AssignSouth(Room room){
+        this.southRoom = room;
+    }
+    public void AssignWest(Room room){
+        this.northRoom = room;
+    }
+
 }
