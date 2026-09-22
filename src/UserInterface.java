@@ -8,6 +8,8 @@ public class UserInterface {
             case "go west" -> IO.println("Going west");
             case "go east" -> IO.println("Going east");
             case "look" -> IO.println("Looking around");
+            case "help" ->
+            case "exit" ->
             default -> IO.println("Unkown command");
         }
     }
