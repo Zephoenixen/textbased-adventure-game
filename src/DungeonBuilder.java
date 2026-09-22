@@ -58,4 +58,7 @@ public class DungeonBuilder {
         room8 = new Room(new Vector2(2,1));
         room9 = new Room(new Vector2(2,2));
     }
+    public Room getRoom1(){
+        return room1;
+    }
 }
