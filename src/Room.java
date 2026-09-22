@@ -19,7 +19,7 @@ public class Room {
         this.southRoom = room;
     }
     public void AssignWest(Room room){
-        this.northRoom = room;
+        this.westRoom = room;
     }
 
 }
