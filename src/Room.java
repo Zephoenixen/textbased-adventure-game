@@ -1,5 +1,8 @@
 public class Room {
     Vector2 roomID;
+    String name;
+    String description;
+
     Room northRoom;
     Room eastRoom;
     Room southRoom;
@@ -7,6 +10,18 @@ public class Room {
 
     Room(Vector2 ID) {
         this.roomID = ID;
+    }
+
+    public Vector2 getRoomID() {
+        return roomID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void AssignNorth(Room room) {
