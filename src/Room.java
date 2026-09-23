@@ -25,6 +25,7 @@ public class Room {
         this.westRoom = room;
     }
 
+     //Getters for vores Rooms
     public Room getNorthRoom() {
         return northRoom;
     }
@@ -38,6 +39,7 @@ public class Room {
     }
 
     public Room getWestRoom() {
-        return eastRoom;
+        return westRoom;
+
     }
 }
