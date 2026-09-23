@@ -35,4 +35,8 @@ public class Adventure {
         currentRoom = r;
         return true;
     }
+    public String currentRoomInfo(){
+        return currentRoom.getName() + "\n"
+                + currentRoom.getDescription();
+    }
 }
