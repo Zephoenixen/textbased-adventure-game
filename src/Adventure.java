@@ -47,4 +47,10 @@ public class Adventure {
     public  Room getCurrentRoom(){
         return currentRoom;
     }
+
+    public boolean goToRoom(Room r){
+        if (r == null) return false;
+        currentRoom = r;
+        return true;
+    }
 }
