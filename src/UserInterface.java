@@ -41,13 +41,34 @@ public class UserInterface {
                                 IO.println("You cannot go that way");
                             }
                         }
-                case "look" -> IO.println("Looking around");
-                case "help" -> IO.println("Help for commands");
+                case "look" -> DescribeMyRoom();
+                case "help" -> HelpList();
                 case "exit" -> running = false;
                 default -> IO.println("Unknown command");
             }
         }
     }
+
+    private void WhereAmI(){
+        IO.println("you are now in " + adventure.getCurrentRoom().getName());
+    }
+
+    private void DescribeMyRoom(){
+        IO.println("The room you are standing in is " + adventure.getCurrentRoom().getDescription());
+    }
+
+    private void HelpList(){
+        IO.println("""
+                go north -> moves the player north
+                go east -> moves the player east
+                go south -> moves the player south
+                go west -> moves the player west
+                look -> describes the current room
+                help -> brings out the list of commands with explainations
+                exit -> exits the program
+                """);
+    }
+
 }
 
 
