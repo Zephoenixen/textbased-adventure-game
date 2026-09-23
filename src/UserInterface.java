@@ -13,43 +13,51 @@ public class UserInterface {
             String kommando = IO.readln();
             switch (kommando) {
 
-                case "go north" -> {
-                    if (adventure.goNorth()) {
-                        IO.println("Going north");
-                        IO.println(adventure.currentRoomInfo());
-                    } else {
-                        IO.println("You cannot go that way");
-                    }
-                }
-                case "go east" -> {
-                    if (adventure.goEast()) {
-                        IO.println("Going east");
-                        IO.println(adventure.currentRoomInfo());
-                    } else {
-                        IO.println("You cannot go that way");
-                    }
-                }
-                case "go south" -> {
-                    if (adventure.goSouth()) {
-                        IO.println("Going south");
-                        IO.println(adventure.currentRoomInfo());
-                    } else {
-                        IO.println("You cannot go that way");
-                    }
-                }
-                case "go west" -> {
-                    if (adventure.goWest()) {
-                        IO.println("Going west");
-                        IO.println(adventure.currentRoomInfo());
-                    } else {
-                        IO.println("You cannot go that way");
-                    }
-                }
+                case "go north" -> TryGoNorth();
+                case "go east" -> TryGoEast();
+                case "go south" -> TryGoSouth();
+                case "go west" -> TryGoWest();
                 case "look" -> IO.println(adventure.currentRoomInfo());
                 case "help" -> HelpList();
                 case "exit" -> running = false;
                 default -> IO.println("Unkown command");
             }
+        }
+    }
+
+    private void TryGoWest() {
+        if (adventure.goWest()) {
+            IO.println("Going west");
+            IO.println(adventure.currentRoomInfo());
+        } else {
+            IO.println("You cannot go that way");
+        }
+    }
+
+    private void TryGoSouth() {
+        if (adventure.goSouth()) {
+            IO.println("Going south");
+            IO.println(adventure.currentRoomInfo());
+        } else {
+            IO.println("You cannot go that way");
+        }
+    }
+
+    private void TryGoEast() {
+        if (adventure.goEast()) {
+            IO.println("Going east");
+            IO.println(adventure.currentRoomInfo());
+        } else {
+            IO.println("You cannot go that way");
+        }
+    }
+
+    private void TryGoNorth() {
+        if (adventure.goNorth()) {
+            IO.println("Going north");
+            IO.println(adventure.currentRoomInfo());
+        } else {
+            IO.println("You cannot go that way");
         }
     }
 
