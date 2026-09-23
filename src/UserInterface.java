@@ -13,10 +13,10 @@ public class UserInterface {
             String kommando = IO.readln();
             switch (kommando) {
 
-                case "go north" -> TryGoNorth();
-                case "go east" -> TryGoEast();
-                case "go south" -> TryGoSouth();
-                case "go west" -> TryGoWest();
+                case "go north" -> TryGo(adventure.goNorth(), "Going North");
+                case "go east" -> TryGo(adventure.goEast(), "Going East");
+                case "go south" -> TryGo(adventure.goSouth(), "Going South");
+                case "go west" -> TryGo(adventure.goWest(), "Going West");
                 case "look" -> IO.println(adventure.currentRoomInfo());
                 case "help" -> HelpList();
                 case "exit" -> running = false;
@@ -25,43 +25,16 @@ public class UserInterface {
         }
     }
 
-    private void TryGoWest() {
-        if (adventure.goWest()) {
-            IO.println("Going west");
+    private void TryGo(boolean condition, String dir_text){
+        if (condition) {
+            IO.println(dir_text);
             IO.println(adventure.currentRoomInfo());
         } else {
             IO.println("You cannot go that way");
         }
     }
 
-    private void TryGoSouth() {
-        if (adventure.goSouth()) {
-            IO.println("Going south");
-            IO.println(adventure.currentRoomInfo());
-        } else {
-            IO.println("You cannot go that way");
-        }
-    }
-
-    private void TryGoEast() {
-        if (adventure.goEast()) {
-            IO.println("Going east");
-            IO.println(adventure.currentRoomInfo());
-        } else {
-            IO.println("You cannot go that way");
-        }
-    }
-
-    private void TryGoNorth() {
-        if (adventure.goNorth()) {
-            IO.println("Going north");
-            IO.println(adventure.currentRoomInfo());
-        } else {
-            IO.println("You cannot go that way");
-        }
-    }
-
-    private void HelpList(){
+    private void HelpList() {
         IO.println("""
         go north -> moves the player north
         go east -> moves the player east
@@ -71,6 +44,7 @@ public class UserInterface {
         help -> brings out the list of commands with explainations
         exit -> exits the program
         """);
+    }
 }
 
 
