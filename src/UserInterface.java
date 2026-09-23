@@ -7,7 +7,7 @@ public class UserInterface {
 
     public void run() {
         boolean running = true;
-
+        IO.println(adventure.currentRoomInfo());
 
         while (running) {
             String kommando = IO.readln();
