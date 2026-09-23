@@ -34,7 +34,7 @@ public class UserInterface {
         }
     }
 
-    private void HelpList() {
+    private void HelpList(){
         IO.println("""
         go north -> moves the player north
         go east -> moves the player east
