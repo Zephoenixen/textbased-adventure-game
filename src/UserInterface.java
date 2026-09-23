@@ -20,7 +20,7 @@ public class UserInterface {
                 case "look" -> IO.println(adventure.currentRoomInfo());
                 case "help" -> HelpList();
                 case "exit" -> running = false;
-                default -> IO.println("Unkown command");
+                default -> IO.println("Unknown command");
             }
         }
     }
