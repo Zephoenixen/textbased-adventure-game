@@ -8,43 +8,25 @@ public class Adventure {
         dungeonBuilder = new DungeonBuilder();
         dungeonBuilder.MakeRooms();
         dungeonBuilder.AssignRooms();
+        dungeonBuilder.AssignNames();
+        dungeonBuilder.AssignDescriptions();
 
         currentRoom = dungeonBuilder.getRoom1();
     }
     // Tjekker hvis der er et rum vores spillere kan gå ind i. Hvis ik return false.
     public boolean goNorth(){
-        Room nextRoom = currentRoom.getNorthRoom();
-        if (nextRoom != null) {
-            currentRoom = nextRoom;
-            return true;
-        }
-        return false;
+        return goToRoom(currentRoom.getNorthRoom());
     }
     public boolean goEast(){
-        Room nextRoom = currentRoom.getEastRoom();
-        if (nextRoom != null){
-            currentRoom = nextRoom;
-            return true;
-        }
-        return false;
+        return goToRoom(currentRoom.getEastRoom());
     }
     public boolean goSouth(){
-        Room nextRoom = currentRoom.getSouthRoom();
-        if (nextRoom != null) {
-            currentRoom = nextRoom;
-            return true;
-        }
-        return false;
+        return goToRoom(currentRoom.getSouthRoom());
     }
     public boolean goWest(){
-        Room nextRoom = currentRoom.getWestRoom();
-        if (nextRoom != null) {
-            currentRoom = nextRoom;
-            return true;
-        }
-        return false;
+        return goToRoom(currentRoom.getWestRoom());
     }
-    public  Room getCurrentRoom(){
+    public Room getCurrentRoom(){
         return currentRoom;
     }
 
