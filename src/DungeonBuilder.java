@@ -41,10 +41,6 @@ public class DungeonBuilder {
         //Assign third row.
         RightConnection(room7, room8);
         RightConnection(room8, room9);
-
-
-
-
     }
 
     public void MakeRooms(){
