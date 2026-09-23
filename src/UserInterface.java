@@ -16,6 +16,7 @@ public class UserInterface {
                 case "go north" -> {
                     if (adventure.goNorth()) {
                         IO.println("Going north");
+                        WhereAmI();
                     } else {
                         IO.println("You cannot go that way");
                     }
@@ -23,6 +24,7 @@ public class UserInterface {
                 case "go east" -> {
                     if (adventure.goEast()) {
                         IO.println("Going east");
+                        WhereAmI();
                     } else {
                         IO.println("You cannot go that way");
                     }
@@ -30,6 +32,7 @@ public class UserInterface {
                 case "go south" -> {
                         if (adventure.goSouth()) {
                             IO.println("Going south");
+                            WhereAmI();
                         } else {
                             IO.println("You cannot go that way");
                         }
@@ -37,6 +40,7 @@ public class UserInterface {
                 case "go west" -> {
                             if (adventure.goWest()) {
                                 IO.println("Going west");
+                                WhereAmI();
                             } else {
                                 IO.println("You cannot go that way");
                             }
