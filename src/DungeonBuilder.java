@@ -19,6 +19,18 @@ public class DungeonBuilder {
         r2.AssignNorth(r1);
     }
 
+    public void MakeRooms(){
+        room1 = new Room(new Vector2(0,0));
+        room2 = new Room(new Vector2(0,1));
+        room3 = new Room(new Vector2(0,2));
+        room4 = new Room(new Vector2(1,0));
+        room5 = new Room(new Vector2(1,1));
+        room6 = new Room(new Vector2(1,2));
+        room7 = new Room(new Vector2(2,0));
+        room8 = new Room(new Vector2(2,1));
+        room9 = new Room(new Vector2(2,2));
+    }
+
     public void AssignRooms(){
         /*
         |---|
@@ -43,17 +55,7 @@ public class DungeonBuilder {
         RightConnection(room8, room9);
     }
 
-    public void MakeRooms(){
-        room1 = new Room(new Vector2(0,0));
-        room2 = new Room(new Vector2(0,1));
-        room3 = new Room(new Vector2(0,2));
-        room4 = new Room(new Vector2(1,0));
-        room5 = new Room(new Vector2(1,1));
-        room6 = new Room(new Vector2(1,2));
-        room7 = new Room(new Vector2(2,0));
-        room8 = new Room(new Vector2(2,1));
-        room9 = new Room(new Vector2(2,2));
-    }
+
     public Room getRoom1(){
         return room1;
     }
