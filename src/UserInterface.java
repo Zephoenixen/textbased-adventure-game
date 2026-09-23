@@ -61,16 +61,17 @@ public class UserInterface {
         }
     }
 
-    private void HelpList(){
+    private void HelpList() {
         IO.println("""
-        go north -> moves the player north
-        go east -> moves the player east
-        go south -> moves the player south
-        go west -> moves the player west
-        look -> describes the current room
-        help -> brings out the list of commands with explainations
-        exit -> exits the program
-        """);
+                go north -> moves the player north
+                go east -> moves the player east
+                go south -> moves the player south
+                go west -> moves the player west
+                look -> describes the current room
+                help -> brings out the list of commands with explainations
+                exit -> exits the program
+                """);
+    }
 }
 
 
