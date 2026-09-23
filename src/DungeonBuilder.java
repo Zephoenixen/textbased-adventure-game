@@ -55,6 +55,30 @@ public class DungeonBuilder {
         RightConnection(room8, room9);
     }
 
+    public void AssignNames(){
+          room1.setName("first room");
+          room2.setName("second room");
+          room3.setName("third room");
+          room4.setName("fourth room");
+          room5.setName("fifth room");
+          room6.setName("sixth room");
+          room7.setName("seventh room");
+          room8.setName("eighth room");
+          room9.setName("ninth room");
+    }
+
+    public void AssignDescriptions(){
+        room1.setDescription("a dark and webby room, with many broken bricks laying");
+        room2.setDescription("a dark and webby room, with two ransacked cupboards");
+        room3.setDescription("a dark and webby room, with a skeleton chained to the wall");
+        room4.setDescription("a grey and webby room, with weak light beams coming from holes in the ceiling");
+        room5.setDescription("a dark and webby room, with a small waterfall in its midst");
+        room6.setDescription("a dark and webby room, with a deep sense of dread filling the air");
+        room7.setDescription("a lighted room, with a very pristine doll set in the southeast corner");
+        room8.setDescription("a dark and webby room, with spiders in every corner");
+        room9.setDescription("a dark and webby room, with two old dilapited shoes filled with mud. A small seedling can be seen emerging from them");
+    }
+
 
     public Room getRoom1(){
         return room1;
