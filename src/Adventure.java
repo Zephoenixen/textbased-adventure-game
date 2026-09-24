@@ -13,20 +13,8 @@ public class Adventure {
         startingRoom = dungeonBuilder.getRoom1();
     }
 
-<<<<<<< Updated upstream
-    public boolean goToRoom(Room r){
-        if (r == null) return false;
-        currentRoom = r;
-        return true;
-    }
-    public String currentRoomInfo(){
-        return "You are in the " + currentRoom.getName() + "\n"
-                + "You find yourself in " + currentRoom.getDescription();
-
-=======
     public Room getStartingRoom() {
         return startingRoom;
->>>>>>> Stashed changes
     }
 
 
