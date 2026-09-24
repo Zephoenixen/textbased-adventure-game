@@ -1,6 +1,10 @@
 public class Player {
     Adventure adv;
 
+    public Player(Adventure adv){
+        this.adv = adv;
+    }
+
     public void GoNorth(){
         TryGo(adv.goNorth(), "Going North");
     }

@@ -36,6 +36,10 @@ public class Adventure {
         return true;
     }
     public String currentRoomInfo(){
-        return "You are in the " + currentRoom.getName() + ", it is " + currentRoom.getDescription();
+        return "You are in the " + currentRoom.getName() + "\n"
+                + "You find yourself in " + currentRoom.getDescription();
+
     }
+
+
 }

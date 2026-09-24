@@ -1,5 +1,5 @@
 public class UserInterface {
-    private Player player = new Player();
+    private Player player;
 
     public UserInterface(Player player) {
         this.player = player;
@@ -10,10 +10,10 @@ public class UserInterface {
 
 
         while (running) {
-            String kommando = IO.readln();
+            String kommando = IO.readln().trim().toLowerCase();
             switch (kommando) {
 
-                case "go north" -> player.GoNorth();
+                case "go north", "n", "west" -> player.GoNorth();
                 case "go east" -> player.GoEast();
                 case "go south" -> player.GoSouth();
                 case "go west" -> player.GoWest();
