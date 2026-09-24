@@ -1,12 +1,12 @@
 public class Room {
-    Vector2 roomID;
-    String name;
-    String description;
+    private Vector2 roomID;
+    private String name;
+    private String description;
 
-    Room northRoom;
-    Room eastRoom;
-    Room southRoom;
-    Room westRoom;
+    private Room northRoom;
+    private Room eastRoom;
+    private Room southRoom;
+    private Room westRoom;
 
     Room(Vector2 ID) {
         this.roomID = ID;
