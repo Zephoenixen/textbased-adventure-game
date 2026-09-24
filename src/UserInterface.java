@@ -7,16 +7,16 @@ public class UserInterface {
 
     public void run() {
         boolean running = true;
-
+        player.Look();
 
         while (running) {
             String kommando = IO.readln().trim().toLowerCase();
             switch (kommando) {
 
-                case "go north", "n", "west" -> player.GoNorth();
-                case "go east" -> player.GoEast();
-                case "go south" -> player.GoSouth();
-                case "go west" -> player.GoWest();
+                case "go north", "n", "north" -> player.GoNorth();
+                case "go east", "e", "east" -> player.GoEast();
+                case "go south", "s", "south" -> player.GoSouth();
+                case "go west", "w", "west" -> player.GoWest();
                 case "look" -> player.Look();
                 case "help" -> HelpList();
                 case "exit" -> running = false;
