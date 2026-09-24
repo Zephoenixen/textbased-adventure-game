@@ -1,6 +1,6 @@
 public class Adventure {
     //Spillerens nuværende position
-    private Room currentRoom;
+    private Room startingRoom;
     private DungeonBuilder dungeonBuilder;
 
 
@@ -10,26 +10,10 @@ public class Adventure {
         dungeonBuilder.AssignRooms();
         dungeonBuilder.AssignNames();
         dungeonBuilder.AssignDescriptions();
-
-        currentRoom = dungeonBuilder.getRoom1();
-    }
-    // Tjekker hvis der er et rum vores spillere kan gå ind i. Hvis ik return false.
-    public boolean goNorth(){
-        return goToRoom(currentRoom.getNorthRoom());
-    }
-    public boolean goEast(){
-        return goToRoom(currentRoom.getEastRoom());
-    }
-    public boolean goSouth(){
-        return goToRoom(currentRoom.getSouthRoom());
-    }
-    public boolean goWest(){
-        return goToRoom(currentRoom.getWestRoom());
-    }
-    public Room getCurrentRoom(){
-        return currentRoom;
+        startingRoom = dungeonBuilder.getRoom1();
     }
 
+<<<<<<< Updated upstream
     public boolean goToRoom(Room r){
         if (r == null) return false;
         currentRoom = r;
@@ -39,6 +23,10 @@ public class Adventure {
         return "You are in the " + currentRoom.getName() + "\n"
                 + "You find yourself in " + currentRoom.getDescription();
 
+=======
+    public Room getStartingRoom() {
+        return startingRoom;
+>>>>>>> Stashed changes
     }
 
 
