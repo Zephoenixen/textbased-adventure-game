@@ -24,4 +24,8 @@ public class Player {
             IO.println("You cannot go that way");
         }
     }
+
+    public void Look(){
+        IO.println(adv.currentRoomInfo());
+    }
 }

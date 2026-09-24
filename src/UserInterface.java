@@ -1,36 +1,27 @@
 public class UserInterface {
-    private Adventure adventure;
+    private Player player = new Player();
 
-    public UserInterface(Adventure adventure) {
-        this.adventure = adventure;
+    public UserInterface(Player player) {
+        this.player = player;
     }
 
     public void run() {
         boolean running = true;
-        IO.println(adventure.currentRoomInfo());
+
 
         while (running) {
             String kommando = IO.readln();
             switch (kommando) {
 
-                case "go north" -> TryGo(adventure.goNorth(), "Going North");
-                case "go east" -> TryGo(adventure.goEast(), "Going East");
-                case "go south" -> TryGo(adventure.goSouth(), "Going South");
-                case "go west" -> TryGo(adventure.goWest(), "Going West");
-                case "look" -> IO.println(adventure.currentRoomInfo());
+                case "go north" -> player.GoNorth();
+                case "go east" -> player.GoEast();
+                case "go south" -> player.GoSouth();
+                case "go west" -> player.GoWest();
+                case "look" -> player.Look();
                 case "help" -> HelpList();
                 case "exit" -> running = false;
                 default -> IO.println("Unknown command");
             }
-        }
-    }
-
-    private void TryGo(boolean condition, String dir_text){
-        if (condition) {
-            IO.println(dir_text);
-            IO.println(adventure.currentRoomInfo());
-        } else {
-            IO.println("You cannot go that way");
         }
     }
 
