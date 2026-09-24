@@ -1,5 +1,6 @@
 void main() {
-    IO.println("LOOK around for any available door to go through, and GO through to map out the area." + "\n");
-    UserInterface userInterface = new UserInterface(new Adventure());
+    Adventure adventure = new Adventure();
+    Player player = new Player(adventure);
+    UserInterface userInterface = new UserInterface(player);
     userInterface.run();
 }
