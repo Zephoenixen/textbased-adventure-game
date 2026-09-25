@@ -1,5 +1,6 @@
 public class Player {
     Adventure adv = new Adventure();
+    Inventory inv = new Inventory();
     Room myRoom = adv.getStartingRoom();
 
 
