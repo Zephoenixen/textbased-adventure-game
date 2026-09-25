@@ -35,7 +35,7 @@ public class Player {
 
     public void Look(){
         IO.println("You are in the " + myRoom.getName() + ", it is " + myRoom.getDescription());
-        if(canLoot()) IO.println(myRoom.);
+        if(canLoot()) IO.println(myRoom.getLoot());
     }
 
     public boolean North(){
