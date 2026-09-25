@@ -21,4 +21,15 @@ public class Inventory {
         if (invReadout.isEmpty()) return "Your inventory is empty";
         return invReadout.toString();
     }
+
+    public String RemoveItem(String itemRemoved){
+        if(items.isEmpty()) return "";
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).equals(itemRemoved)){
+                items.remove(i);
+                return itemRemoved;
+            }
+        }
+        return "";
+    }
 }
