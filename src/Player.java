@@ -8,41 +8,29 @@ public class Player {
     }
 
     public void GoNorth(){
-        if(!North()) IO.println("You cannot go that way");
-        else {
-            myRoom = myRoom.getNorthRoom();
-            IO.println("Going North");
-            Look();
-        }
+        GoToCardinal(North(), myRoom.getNorthRoom(), "Going North");
     }
 
     public void GoEast(){
-        if(!East()) IO.println("You cannot go that way");
-        else {
-            myRoom = myRoom.getEastRoom();
-            IO.println("Going East");
-            Look();
-        }
+        GoToCardinal(East(), myRoom.getEastRoom(), "Going East");
     }
 
     public void GoSouth(){
-        if(!South()) IO.println("You cannot go that way");
-        else {
-            myRoom = myRoom.getSouthRoom();
-            IO.println("Going South");
-            Look();
-        }
+        GoToCardinal(South(), myRoom.getSouthRoom(), "Going South");
     }
 
     public void GoWest(){
-        if(!West()) IO.println("You cannot go that way");
+        GoToCardinal(West(), myRoom.getWestRoom(), "Going West");
+    }
+
+    private void GoToCardinal(boolean cardinal, Room room, String cardinalText) {
+        if (!cardinal) IO.println("You cannot go that way");
         else {
-            myRoom = myRoom.getWestRoom();
-            IO.println("Going West");
+            myRoom = room;
+            IO.println(cardinalText);
             Look();
         }
     }
-
 
     public void Look(){
         IO.println("You are in the " + myRoom.getName() + ", it is " + myRoom.getDescription());
