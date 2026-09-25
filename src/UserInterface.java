@@ -11,6 +11,14 @@ public class UserInterface {
 
         while (running) {
             String kommando = IO.readln().trim().toLowerCase();
+            if(kommando.contains("take")){
+                String sub = kommando.substring(5);
+                player.takeItemInRoom(sub);
+            }
+            else if (kommando.contains("drop")){
+                String sub = kommando.substring(5);
+                player.placeItemInRoom(sub);
+            }
             switch (kommando) {
 
                 case "go north", "n", "north" -> player.GoNorth();
@@ -24,6 +32,8 @@ public class UserInterface {
             }
         }
     }
+
+
 
     private void HelpList(){
         IO.println("""

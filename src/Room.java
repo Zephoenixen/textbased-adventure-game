@@ -2,6 +2,7 @@ public class Room {
     private Vector2 roomID;
     private String name;
     private String description;
+    private Inventory loot;
 
     private Room northRoom;
     private Room eastRoom;
@@ -11,6 +12,8 @@ public class Room {
     Room(Vector2 ID) {
         this.roomID = ID;
     }
+
+    // Getters for position, name and description.
 
     public Vector2 getRoomID() {
         return roomID;
@@ -24,6 +27,7 @@ public class Room {
         return description;
     }
 
+    //Setters for Name and Description.
     public void setName(String name) {
         this.name = name;
     }
@@ -32,6 +36,8 @@ public class Room {
         this.description = description;
     }
 
+
+    //Setters for Rooms.
     public void AssignNorth(Room room) {
         this.northRoom = room;
     }
@@ -48,7 +54,8 @@ public class Room {
         this.westRoom = room;
     }
 
-     //Getters for vores Rooms
+
+     //Getters for Rooms.
     public Room getNorthRoom() {
         return northRoom;
     }
@@ -63,6 +70,22 @@ public class Room {
 
     public Room getWestRoom() {
         return westRoom;
+    }
 
+    // lootManagement
+
+    public boolean isLoot(){
+        return loot.notEmpty();
+    }
+
+    public String getLoot() {
+        return loot.ItemList();
+    }
+
+    public void TakeItemFromRoom(String item){
+        loot.RemoveItem(item);
+    }
+    public void PutItemInRoom(String item){
+        loot.AddItem(item);
     }
 }

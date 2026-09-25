@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 
 public class Inventory {
-    ArrayList<String> items = new ArrayList<>();
+    private ArrayList<String> items = new ArrayList<>();
 
-
-    public void AddItem(String item){
-        items.add(item);
+    public boolean notEmpty(){
+        return !items.isEmpty();
     }
 
-    public String ItemsList(){
+    public String ItemList(){
         StringBuilder invReadout;
         invReadout = new StringBuilder();
 
@@ -18,18 +17,22 @@ public class Inventory {
             else invReadout.append(",");
             invReadout.append(" ").append(items.get(i));
         }
-        if (invReadout.isEmpty()) return "Your inventory is empty";
+        if (invReadout.isEmpty()) return "";
         return invReadout.toString();
     }
 
-    public String RemoveItem(String itemRemoved){
-        if(items.isEmpty()) return "";
+
+    public void AddItem(String item){
+        items.add(item);
+    }
+
+    public void RemoveItem(String itemRemoved){
+        if(items.isEmpty()) return ;
         for (int i = 0; i < items.size(); i++) {
             if(items.get(i).equals(itemRemoved)){
                 items.remove(i);
-                return itemRemoved;
+                return;
             }
         }
-        return "";
     }
 }

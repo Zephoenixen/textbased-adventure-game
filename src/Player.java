@@ -35,6 +35,7 @@ public class Player {
 
     public void Look(){
         IO.println("You are in the " + myRoom.getName() + ", it is " + myRoom.getDescription());
+        if(canLoot()) IO.println(myRoom.);
     }
 
     public boolean North(){
@@ -51,5 +52,27 @@ public class Player {
     }
     public boolean RoomExist(Room room){
         return room != null;
+    }
+
+    public void takeItemInRoom(String sub) {
+        if(!canLoot()) {
+            IO.println("There are no items in this room");
+        }
+        myRoom.TakeItemFromRoom(sub);
+        inv.AddItem(sub);
+    }
+
+    public void placeItemInRoom(String sub) {
+        inv.RemoveItem(sub);
+        myRoom.PutItemInRoom(sub);
+    }
+
+    private void ListItems(){
+        if (inv.ItemList().isBlank()) IO.println("Your inventory is empty");
+        IO.println(inv.ItemList());
+    }
+
+    private boolean canLoot(){
+        return myRoom.isLoot();
     }
 }
