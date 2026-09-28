@@ -55,21 +55,23 @@ public class Player {
     }
 
     public void takeItemInRoom(String sub) {
-        if (myRoom.TakeItemFromRoom(sub)) {
-            inv.AddItem(sub);
-            IO.println("You have taken the " + sub + " and it is now in your inventory");
-        } else {
+        Item takenItem = myRoom.TakeItemFromRoom(sub);
+        if (takenItem == null) {
             IO.println("There is no " + sub + " in this room");
+            return;
         }
+        inv.AddItem(takenItem);
+        IO.println("You have taken " + takenItem + " and it is now in your inventory");
     }
 
     public void placeItemInRoom(String sub) {
-       if (inv.RemoveItem(sub)){
-           myRoom.PutItemInRoom(sub);
-           IO.println("You have dropped the " + sub + " in this room");
-       } else {
-           IO.println("You dont have " + sub + " in your inventory");
-       }
+        Item itemToPlace = inv.Search(sub);
+        if (itemToPlace == null){
+            IO.println("You dont have " + sub + " in your inventory");
+            return;
+        }
+        myRoom.PutItemInRoom(itemToPlace);
+        IO.println("You have dropped " + itemToPlace + " in this room");
     }
 
     public void ListItems(){

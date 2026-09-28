@@ -43,7 +43,7 @@ public class UserInterface {
         go east -> moves the player east
         go south -> moves the player south
         go west -> moves the player west
-        look -> describes the current room 
+        look -> describes the current room
         help -> brings out the list of commands with explainations
         exit -> exits the program
         inventory -> view the items you are currently carrying in your inventory

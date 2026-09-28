@@ -1,13 +1,7 @@
 public class DungeonBuilder {
-    Room room1;
-    Room room2;
-    Room room3;
-    Room room4;
-    Room room5;
-    Room room6;
-    Room room7;
-    Room room8;
-    Room room9;
+    Room room1,room2,room3,room4,room5,room6,room7,room8,room9;
+
+    Item Torch, Diamond, Sword, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
 
     private void RightConnection(Room r1, Room r2){
         r1.AssignEast(r2);
@@ -29,6 +23,24 @@ public class DungeonBuilder {
         room7 = new Room(new Vector2(2,0));
         room8 = new Room(new Vector2(2,1));
         room9 = new Room(new Vector2(2,2));
+    }
+
+    public void MakeItems(){
+        Torch = new Item("glimmering torch" , "torch" , "a");
+        Diamond = new Item("beautiful diamond" , "diamond" , "a");
+        Sword = new Item("bulky sword" , "sword" , "a");
+        Bottle = new Item("empty glass bottle" , "bottle" , "an");
+        Mirror = new Item("reflective mirror" , "mirror" , "a");
+        Rope = new Item("hempen rope" , "rope" , "a");
+        Coin = new Item("gold coin from an old empire" , "coin" , "a");
+        Amulet = new Item("amulet with elven engravings" , "amulet" , "an");
+        Candle = new Item("unlit candle" , "candle" , "an");
+        Book = new Item("dusty book with unreadable words" , "book" , "a");
+        Doll = new Item("childlike doll" , "doll" , "a");
+        Lantern = new Item("lit lantern" , "lantern" , "a");
+        Jar = new Item("tiny jar" , "jar" , "a");
+        Shoes = new Item("leather shoes" , "shoes" , "a");
+        Clock = new Item("broken clock" , "clock" , "a");
     }
 
     public void AssignRooms(){
@@ -85,20 +97,20 @@ public class DungeonBuilder {
     }
 
     public void assignItems() {
-        room1.PutItemInRoom("torch");
-        room1.PutItemInRoom("diamond");
-        room2.PutItemInRoom("sword");
-        room3.PutItemInRoom("bottle");
-        room3.PutItemInRoom("mirror");
-        room3.PutItemInRoom("rope");
-        room4.PutItemInRoom("coin");
-        room5.PutItemInRoom("amulet");
-        room6.PutItemInRoom("candle");
-        room6.PutItemInRoom("book");
-        room7.PutItemInRoom("doll");
-        room8.PutItemInRoom("lantern");
-        room8.PutItemInRoom("jar");
-        room9.PutItemInRoom("shoes");
-        room9.PutItemInRoom("clock");
+        room1.PutItemInRoom(Torch);
+        room1.PutItemInRoom(Diamond);
+        room2.PutItemInRoom(Sword);
+        room3.PutItemInRoom(Bottle);
+        room3.PutItemInRoom(Mirror);
+        room3.PutItemInRoom(Rope);
+        room4.PutItemInRoom(Coin);
+        room5.PutItemInRoom(Amulet);
+        room6.PutItemInRoom(Candle);
+        room6.PutItemInRoom(Book);
+        room7.PutItemInRoom(Doll);
+        room8.PutItemInRoom(Lantern);
+        room8.PutItemInRoom(Jar);
+        room9.PutItemInRoom(Shoes);
+        room9.PutItemInRoom(Clock);
     }
 }

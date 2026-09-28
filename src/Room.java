@@ -82,11 +82,13 @@ public class Room {
         return loot.ItemList();
     }
 
-    public boolean TakeItemFromRoom(String item){
-        return loot.RemoveItem(item);
+    public Item TakeItemFromRoom(String item){
+        Item itemToTake = loot.Search(item);
+        loot.RemoveItem(item);
+        return itemToTake;
     }
 
-    public void PutItemInRoom(String item){
+    public void PutItemInRoom(Item item){
         loot.AddItem(item);
     }
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Inventory {
-    private ArrayList<String> items = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public boolean notEmpty(){
         return !items.isEmpty();
@@ -22,18 +22,26 @@ public class Inventory {
     }
 
 
-    public void AddItem(String item){
+
+    public void AddItem(Item item){
         items.add(item);
     }
 
-    public boolean RemoveItem(String itemRemoved){
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).equals(itemRemoved)) {
-                items.remove(i);
-                return true;
+    public boolean RemoveItem(String itemName){
+       Item itemToRemove = Search(itemName);
+       if(itemToRemove == null) return false;
+       items.remove(itemToRemove);
+       return true;
+    }
+
+    public Item Search(String sub){
+        if(items.isEmpty()) return null;
+        for (Item item : items) {
+            if (item.getShorthand().equals(sub)) {
+                return item;
             }
         }
-        return false;
+        return null;
     }
 
     @Override
