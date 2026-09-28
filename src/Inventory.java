@@ -27,11 +27,10 @@ public class Inventory {
         items.add(item);
     }
 
-    public boolean RemoveItem(String itemName){
+    public void RemoveItem(String itemName){
        Item itemToRemove = Search(itemName);
-       if(itemToRemove == null) return false;
+       if(itemToRemove == null) return;
        items.remove(itemToRemove);
-       return true;
     }
 
     public Item Search(String sub){
