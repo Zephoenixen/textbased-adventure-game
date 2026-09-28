@@ -35,7 +35,7 @@ public class Player {
 
     public void Look(){
         IO.println("You are in the " + myRoom.getName() + ", it is " + myRoom.getDescription());
-        if(canLoot()) IO.println(myRoom.getLoot());
+        if(canLoot()) IO.println("There is a " + myRoom.getLoot() + " in this room");
     }
 
     public boolean North(){
@@ -55,21 +55,26 @@ public class Player {
     }
 
     public void takeItemInRoom(String sub) {
-        if(!canLoot()) {
-            IO.println("There are no items in this room");
+        if (myRoom.TakeItemFromRoom(sub)) {
+            inv.AddItem(sub);
+            IO.println("You have taken the " + sub + " and it is now in your inventory");
+        } else {
+            IO.println("There is no " + sub + " in this room");
         }
-        myRoom.TakeItemFromRoom(sub);
-        inv.AddItem(sub);
     }
 
     public void placeItemInRoom(String sub) {
-        inv.RemoveItem(sub);
-        myRoom.PutItemInRoom(sub);
+       if (inv.RemoveItem(sub)){
+           myRoom.PutItemInRoom(sub);
+           IO.println("You have dropped the " + sub + " in this room");
+       } else {
+           IO.println("You dont have " + sub + " in your inventory");
+       }
     }
 
-    private void ListItems(){
-        if (inv.ItemList().isBlank()) IO.println("Your inventory is empty");
-        IO.println(inv.ItemList());
+    public void ListItems(){
+        if (inv.notEmpty()) IO.println("You are carrying: " + inv.ItemList());
+        else IO.println("Your inventory is empty");
     }
 
     private boolean canLoot(){

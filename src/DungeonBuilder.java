@@ -83,4 +83,22 @@ public class DungeonBuilder {
     public Room getRoom1(){
         return room1;
     }
+
+    public void assignItems() {
+        room1.PutItemInRoom("torch");
+        room1.PutItemInRoom("diamond");
+        room2.PutItemInRoom("sword");
+        room3.PutItemInRoom("bottle");
+        room3.PutItemInRoom("mirror");
+        room3.PutItemInRoom("rope");
+        room4.PutItemInRoom("coin");
+        room5.PutItemInRoom("amulet");
+        room6.PutItemInRoom("candle");
+        room6.PutItemInRoom("book");
+        room7.PutItemInRoom("doll");
+        room8.PutItemInRoom("lantern");
+        room8.PutItemInRoom("jar");
+        room9.PutItemInRoom("shoes");
+        room9.PutItemInRoom("clock");
+    }
 }

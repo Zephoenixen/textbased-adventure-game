@@ -26,13 +26,18 @@ public class Inventory {
         items.add(item);
     }
 
-    public void RemoveItem(String itemRemoved){
-        if(items.isEmpty()) return ;
+    public boolean RemoveItem(String itemRemoved){
         for (int i = 0; i < items.size(); i++) {
-            if(items.get(i).equals(itemRemoved)){
+            if (items.get(i).equals(itemRemoved)) {
                 items.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return items.toString();
     }
 }

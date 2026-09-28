@@ -2,7 +2,7 @@ public class Room {
     private Vector2 roomID;
     private String name;
     private String description;
-    private Inventory loot;
+    private Inventory loot = new Inventory();
 
     private Room northRoom;
     private Room eastRoom;
@@ -82,9 +82,10 @@ public class Room {
         return loot.ItemList();
     }
 
-    public void TakeItemFromRoom(String item){
-        loot.RemoveItem(item);
+    public boolean TakeItemFromRoom(String item){
+        return loot.RemoveItem(item);
     }
+
     public void PutItemInRoom(String item){
         loot.AddItem(item);
     }
