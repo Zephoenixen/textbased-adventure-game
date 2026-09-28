@@ -1,7 +1,7 @@
 public class DungeonBuilder {
-    Room room1,room2,room3,room4,room5,room6,room7,room8,room9;
+    private Room room1,room2,room3,room4,room5,room6,room7,room8,room9;
 
-    Item Torch, Diamond, Sword, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
+    private Item Torch, Diamond, Sword, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
 
     private void RightConnection(Room r1, Room r2){
         r1.AssignEast(r2);

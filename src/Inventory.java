@@ -11,13 +11,19 @@ public class Inventory {
         StringBuilder invReadout;
         invReadout = new StringBuilder();
 
+        if(items.isEmpty()) return "nothing";
+
         invReadout.append(items.getFirst());
+
         for (int i = 1; i < items.size(); i++) {
-            if (i+1 == items.size()) invReadout.append(" and");
-            else invReadout.append(",");
-            invReadout.append(" ").append(items.get(i));
+
+            if (i+1 == items.size()) invReadout.append(" and ");
+            else invReadout.append(", ");
+
+            if(items.get(i) == null) break;
+
+            invReadout.append(items.get(i).toString());
         }
-        if (invReadout.isEmpty()) return "";
         return invReadout.toString();
     }
 

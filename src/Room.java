@@ -1,5 +1,5 @@
 public class Room {
-    private Vector2 roomID;
+    private final Vector2 roomID;
     private String name;
     private String description;
     private Inventory loot = new Inventory();
