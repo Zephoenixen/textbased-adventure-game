@@ -42,6 +42,19 @@ public class DungeonBuilder {
         Shoes = new Item("leather shoes" , "shoes" , "a");
         Clock = new Item("broken clock" , "clock" , "a");
     }
+    Food Bread = new Food(
+            "bread",
+            "bread",
+            "a loaf of stale bread",
+            10
+    );
+
+    Food Mushroom = new Food(
+            "mushroom",
+            "mushroom",
+            "a pale glowing mushroom",
+            -50
+    );
 
     public void AssignRooms(){
         /*
@@ -99,10 +112,12 @@ public class DungeonBuilder {
     public void assignItems() {
         room1.PutItemInRoom(Torch);
         room1.PutItemInRoom(Diamond);
+        room1.PutItemInRoom(Bread);
         room2.PutItemInRoom(Sword);
         room3.PutItemInRoom(Bottle);
         room3.PutItemInRoom(Mirror);
         room3.PutItemInRoom(Rope);
+        room3.PutItemInRoom(Mushroom);
         room4.PutItemInRoom(Coin);
         room5.PutItemInRoom(Amulet);
         room6.PutItemInRoom(Candle);
@@ -112,5 +127,6 @@ public class DungeonBuilder {
         room8.PutItemInRoom(Jar);
         room9.PutItemInRoom(Shoes);
         room9.PutItemInRoom(Clock);
+
     }
 }

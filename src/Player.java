@@ -2,10 +2,14 @@ public class Player {
     Adventure adv = new Adventure();
     Inventory inv = new Inventory();
     Room myRoom = adv.getStartingRoom();
+    private int health = 100;
 
 
     public Player(Adventure adv){
         this.adv = adv;
+    }
+    public int getHealth(){
+        return health;
     }
 
     public void GoNorth(){
@@ -82,4 +86,39 @@ public class Player {
     private boolean canLoot(){
         return myRoom.isLoot();
     }
+    public String getHealthStatus(){
+        if (health == 100){
+            return "You are in perfect health";
+        }
+        if (health >= 50){
+            return "You are in good health, but avoid fighting right now";
+        }
+        if (health > 0){
+            return "You are in poor health";
+        }
+        return "You are dead";
+    }
+    public EatResult Eat(String name) {
+        Item item = inv.Search((name));
+        boolean fromInventory = true;
+        if (item == null) {
+            item = myRoom.TakeItemFromRoom(name);
+            fromInventory = false;
+        }
+        if (item == null){
+            return EatResult.NOT_FOUND;
+        }
+        if (!(item instanceof Food food)) {
+            if (!fromInventory){
+                myRoom.PutItemInRoom(item);
+            }
+            return EatResult.NOT_FOOD;
+        }
+      health += food.getHealthPoints();
+        if (fromInventory) {
+            inv.RemoveItem(item.getShorthand());
+        }
+        return EatResult.EATEN;
+    }
+
 }
