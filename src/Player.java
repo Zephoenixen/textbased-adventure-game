@@ -86,6 +86,7 @@ public class Player {
     private boolean canLoot(){
         return myRoom.isLoot();
     }
+
     public String getHealthStatus(){
         if (health == 100){
             return "You are in perfect health";
@@ -98,6 +99,7 @@ public class Player {
         }
         return "You are dead";
     }
+
     public EatResult Eat(String name) {
         Item item = inv.Search((name));
         boolean fromInventory = true;
