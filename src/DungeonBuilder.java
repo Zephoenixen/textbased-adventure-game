@@ -61,14 +61,7 @@ public class DungeonBuilder {
     );
 
     public void AssignRooms(){
-        /*
-        |---|
-        | | |
-        |-|-|
-
-        */
-
-        // Assign first row.
+               // Assign first row.
         RightConnection(room1, room2);
         RightConnection(room2, room3);
         DownConnection(room1, room4);
@@ -114,10 +107,10 @@ public class DungeonBuilder {
     }
 
     public void assignItems() {
-        room1.PutItemInRoom(Torch);
-        room1.PutItemInRoom(Diamond);
-        room1.PutItemInRoom(Bow);
         room1.PutItemInRoom(Bread);
+        room1.PutItemInRoom(Bow);
+        room1.PutItemInRoom(Diamond);
+        room1.PutItemInRoom(Torch);
         room2.PutItemInRoom(Sword);
         room3.PutItemInRoom(Bottle);
         room3.PutItemInRoom(Mirror);

@@ -10,5 +10,10 @@ public class MeleeWeapon extends Weapon {
     public void Attack(){
         IO.println("you attack the " + "the air" + " with your " + name + "it takes " + damage + " damage.");
     }
+
+    @Override
+    public String toString() {
+        return Grammar(name) + name;
+    }
 }
 

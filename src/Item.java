@@ -17,10 +17,10 @@ public class Item {
 
     @Override
     public String toString() {
-        return Grammar(getName()) + getName();
+        return Grammar(name) + name;
     }
 
-    private String Grammar(String word){
+    public String Grammar(String word){
         char ch = word.toLowerCase().charAt(1);
         if(isVowel(ch)) return "an ";
         else return "a ";

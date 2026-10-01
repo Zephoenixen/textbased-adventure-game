@@ -7,20 +7,23 @@ public class Inventory {
         return !items.isEmpty();
     }
 
+
+
     public String ItemList(){
         StringBuilder invReadout;
         invReadout = new StringBuilder();
 
         if(items.isEmpty()) return "nothing";
 
+
         invReadout.append(items.getFirst());
+        if(items.size() == 1) return invReadout.toString();
 
         for (int i = 1; i < items.size(); i++) {
 
+            if(items.get(i) == null) break;
             if (i+1 == items.size()) invReadout.append(" and ");
             else invReadout.append(", ");
-
-            if(items.get(i) == null) break;
 
             invReadout.append(items.get(i).toString());
         }
@@ -42,7 +45,7 @@ public class Inventory {
     public Item Search(String sub){
         if(items.isEmpty()) return null;
         for (Item item : items) {
-            if (item.getShorthand().equals(sub)) {
+            if (item != null && item.getShorthand().equals(sub)) {
                 return item;
             }
         }

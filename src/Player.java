@@ -1,14 +1,12 @@
 public class Player {
     Adventure adv = new Adventure();
     Inventory inv = new Inventory();
+
     Weapon weaponSlot;
+
     Room myRoom = adv.getStartingRoom();
     private int health = 100;
 
-
-    public Player(Adventure adv){
-        this.adv = adv;
-    }
     public int getHealth(){
         return health;
     }
@@ -40,7 +38,7 @@ public class Player {
 
     public void Look(){
         IO.println("You are in the " + myRoom.getName() + ", it is " + myRoom.getDescription());
-        if(canLoot()) IO.println("There is " + myRoom.getLoot() + " in this room");
+        if(canLoot()) IO.println("There is " + myRoom.getRoomLoot() + " in this room");
     }
 
     public boolean North(){
@@ -85,7 +83,7 @@ public class Player {
     }
 
     private boolean canLoot(){
-        return myRoom.isLoot();
+        return myRoom.isThereRoomLoot();
     }
 
     public String getHealthStatus(){

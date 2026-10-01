@@ -2,7 +2,7 @@ public class Room {
     private final Vector2 roomID;
     private String name;
     private String description;
-    private Inventory loot = new Inventory();
+    private Inventory roomItems = new Inventory();
 
     private Room northRoom;
     private Room eastRoom;
@@ -73,22 +73,21 @@ public class Room {
     }
 
     // lootManagement
-
-    public boolean isLoot(){
-        return loot.notEmpty();
+    public boolean isThereRoomLoot(){
+        return roomItems.notEmpty();
     }
 
-    public String getLoot() {
-        return loot.ItemList();
+    public String getRoomLoot() {
+        return roomItems.ItemList();
     }
 
     public Item TakeItemFromRoom(String item){
-        Item itemToTake = loot.Search(item);
-        loot.RemoveItem(item);
+        Item itemToTake = roomItems.Search(item);
+        roomItems.RemoveItem(item);
         return itemToTake;
     }
 
     public void PutItemInRoom(Item item){
-        loot.AddItem(item);
+        roomItems.AddItem(item);
     }
 }
