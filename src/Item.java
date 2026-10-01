@@ -1,20 +1,14 @@
 public class Item {
     protected String name;
     protected String shorthand;
-    protected String grammar;
 
-    Item(String n, String sh, String g){
+    Item(String n, String sh){
         name = n;
         shorthand = sh;
-        grammar = g;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getGrammar() {
-        return grammar;
     }
 
     public String getShorthand() {
@@ -23,8 +17,17 @@ public class Item {
 
     @Override
     public String toString() {
-        StringBuilder strbud;
-        strbud = new StringBuilder(grammar).append(" ").append(name);
-        return strbud.toString();
+        return Grammar(getName()) + getName();
     }
+
+    private String Grammar(String word){
+        char ch = word.toLowerCase().charAt(1);
+        if(isVowel(ch)) return "an ";
+        else return "a ";
+    }
+
+    private boolean isVowel(char ch){
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
+
 }

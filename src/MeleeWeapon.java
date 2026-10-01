@@ -1,8 +1,8 @@
 public class MeleeWeapon extends Weapon {
     int damage;
 
-    MeleeWeapon(String n, String sh, String g, int d){
-        super(n, sh, g);
+    MeleeWeapon(String n, String sh, int d){
+        super(n, sh);
         damage = d;
     }
 

@@ -2,8 +2,8 @@ public class AmmoWeapon extends Weapon {
     int damage;
     int ammo;
 
-    AmmoWeapon(String n, String sh, String g, int d, int a){
-        super(n, sh, g);
+    AmmoWeapon(String n, String sh, int d, int a){
+        super(n, sh);
         damage = d;
         ammo = a;
     }

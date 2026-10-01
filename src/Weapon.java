@@ -1,7 +1,7 @@
 public abstract class Weapon extends Item {
 
-    Weapon(String n, String sh, String g) {
-        super(n, sh, g);
+    Weapon(String n, String sh) {
+        super(n, sh);
     }
 
     public void Attack(){
