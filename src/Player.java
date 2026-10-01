@@ -1,6 +1,7 @@
 public class Player {
     Adventure adv = new Adventure();
     Inventory inv = new Inventory();
+    Weapon weaponSlot;
     Room myRoom = adv.getStartingRoom();
     private int health = 100;
 
@@ -123,4 +124,7 @@ public class Player {
         return EatResult.EATEN;
     }
 
+    public void Attack() {
+        weaponSlot.Attack();
+    }
 }

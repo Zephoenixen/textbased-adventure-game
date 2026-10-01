@@ -15,45 +15,51 @@ public class UserInterface {
                 String item = kommando.substring(5);
                 player.takeItemInRoom(item);
             }
+
             else if (kommando.contains("drop")){
                 String sub = kommando.substring(5);
                 player.placeItemInRoom(sub);
-            } else if (kommando.startsWith("eat ")) {
+            }
+
+            else if (kommando.startsWith("eat ")) {
                 String item = kommando.substring(4);
                 EatResult result = player.Eat(item);
+
                 switch (result) {
                     case NOT_FOUND ->
                             IO.println("There is nothing like " + item + " to eat around here");
-
                     case NOT_FOOD ->
                             IO.println("You cannot eat the " + item);
-
                     case EATEN ->
                             IO.println("You eat the " + item);
                 }
             }
-                else {
+            else {
 
-                switch (kommando) {
+            switch (kommando) {
 
-                    case "go north", "n", "north" -> player.GoNorth();
-                    case "go east", "e", "east" -> player.GoEast();
-                    case "go south", "s", "south" -> player.GoSouth();
-                    case "go west", "w", "west" -> player.GoWest();
-                    case "look" -> player.Look();
-                    case "inventory", "i" -> player.ListItems();
-                    case "health" ->
-                        IO.println("health: " + player.getHealth()
-                                + " - " + player.getHealthStatus());
-                    case "help" -> HelpList();
-                    case "exit" -> running = false;
-                    default -> IO.println("Unknown command");
+                case "go north", "n", "north" -> player.GoNorth();
+                case "go east", "e", "east" -> player.GoEast();
+                case "go south", "s", "south" -> player.GoSouth();
+                case "go west", "w", "west" -> player.GoWest();
+
+                case "attack" -> player.Attack();
+                case "look" -> player.Look();
+                case "inventory", "i" -> player.ListItems();
+
+                case "health" -> DisplayPlayerHealth();
+                case "help" -> HelpList();
+
+                case "exit" -> running = false;
+                default -> IO.println("Unknown command");
                 }
             }
         }
     }
 
-
+    private void DisplayPlayerHealth(){
+        IO.println("health: " + player.getHealth() + " - " + player.getHealthStatus());
+    }
 
     private void HelpList(){
         IO.println("""

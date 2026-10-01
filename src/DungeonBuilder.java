@@ -1,7 +1,9 @@
 public class DungeonBuilder {
     private Room room1,room2,room3,room4,room5,room6,room7,room8,room9;
 
-    private Item Torch, Diamond, Sword, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
+    private Item Diamond, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
+
+    private Weapon Sword, Bow, Torch;
 
     private void RightConnection(Room r1, Room r2){
         r1.AssignEast(r2);
@@ -26,9 +28,7 @@ public class DungeonBuilder {
     }
 
     public void MakeItems(){
-        Torch = new Item("glimmering torch" , "torch" , "a");
         Diamond = new Item("beautiful diamond" , "diamond" , "a");
-        Sword = new Item("bulky sword" , "sword" , "a");
         Bottle = new Item("empty glass bottle" , "bottle" , "an");
         Mirror = new Item("reflective mirror" , "mirror" , "a");
         Rope = new Item("hempen rope" , "rope" , "a");
@@ -41,6 +41,12 @@ public class DungeonBuilder {
         Jar = new Item("tiny jar" , "jar" , "a");
         Shoes = new Item("leather shoes" , "shoes" , "a");
         Clock = new Item("broken clock" , "clock" , "a");
+    }
+
+    public void MakeWeapons(){
+        Sword = new MeleeWeapon("silver rapier", "sword", "a", 10 );
+        Torch = new MeleeWeapon("burning torch", "torch", "a", 5);
+        Bow = new AmmoWeapon("elven bow", "bow", "an", 15, 10);
     }
     Food Bread = new Food(
             "bread",
@@ -110,10 +116,11 @@ public class DungeonBuilder {
     }
 
     public void assignItems() {
-        room1.PutItemInRoom(Torch);
+        room1.PutItemInRoom((Item) Torch);
         room1.PutItemInRoom(Diamond);
+        room1.PutItemInRoom((Item) Bow);
         room1.PutItemInRoom(Bread);
-        room2.PutItemInRoom(Sword);
+        room2.PutItemInRoom((Item) Sword);
         room3.PutItemInRoom(Bottle);
         room3.PutItemInRoom(Mirror);
         room3.PutItemInRoom(Rope);
