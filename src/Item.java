@@ -1,7 +1,7 @@
 public class Item {
-    private final String name;
-    private final String shorthand;
-    private final String grammar;
+    protected String name;
+    protected String shorthand;
+    protected String grammar;
 
     Item(String n, String sh, String g){
         name = n;
