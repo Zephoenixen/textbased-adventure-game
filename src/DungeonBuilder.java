@@ -28,25 +28,25 @@ public class DungeonBuilder {
     }
 
     public void MakeItems(){
-        Diamond = new Item("beautiful diamond" , "diamond" , "a");
-        Bottle = new Item("empty glass bottle" , "bottle" , "an");
-        Mirror = new Item("reflective mirror" , "mirror" , "a");
-        Rope = new Item("hempen rope" , "rope" , "a");
-        Coin = new Item("gold coin from an old empire" , "coin" , "a");
-        Amulet = new Item("amulet with elven engravings" , "amulet" , "an");
-        Candle = new Item("unlit candle" , "candle" , "an");
-        Book = new Item("dusty book with unreadable words" , "book" , "a");
-        Doll = new Item("childlike doll" , "doll" , "a");
-        Lantern = new Item("lit lantern" , "lantern" , "a");
-        Jar = new Item("tiny jar" , "jar" , "a");
-        Shoes = new Item("leather shoes" , "shoes" , "a");
-        Clock = new Item("broken clock" , "clock" , "a");
+        Diamond = new Item("beautiful diamond" , "diamond");
+        Bottle = new Item("empty glass bottle" , "bottle");
+        Mirror = new Item("reflective mirror" , "mirror");
+        Rope = new Item("hempen rope" , "rope");
+        Coin = new Item("gold coin from an old empire" , "coin");
+        Amulet = new Item("amulet with elven engravings" , "amulet");
+        Candle = new Item("unlit candle" , "candle");
+        Book = new Item("dusty book with unreadable words" , "book");
+        Doll = new Item("childlike doll" , "doll");
+        Lantern = new Item("lit lantern" , "lantern");
+        Jar = new Item("tiny jar" , "jar");
+        Shoes = new Item("leather shoes" , "shoes");
+        Clock = new Item("broken clock" , "clock");
     }
 
     public void MakeWeapons(){
-        Sword = new MeleeWeapon("silver rapier", "sword", "a", 10 );
-        Torch = new MeleeWeapon("burning torch", "torch", "a", 5);
-        Bow = new AmmoWeapon("elven bow", "bow", "an", 15, 10);
+        Sword = new MeleeWeapon("silver rapier", "sword", 10 );
+        Torch = new MeleeWeapon("burning torch", "torch", 5);
+        Bow = new AmmoWeapon("elven bow", "bow", 15, 10);
     }
     Food Bread = new Food(
             "bread",
@@ -116,11 +116,11 @@ public class DungeonBuilder {
     }
 
     public void assignItems() {
-        room1.PutItemInRoom((Item) Torch);
+        room1.PutItemInRoom(Torch);
         room1.PutItemInRoom(Diamond);
-        room1.PutItemInRoom((Item) Bow);
+        room1.PutItemInRoom(Bow);
         room1.PutItemInRoom(Bread);
-        room2.PutItemInRoom((Item) Sword);
+        room2.PutItemInRoom(Sword);
         room3.PutItemInRoom(Bottle);
         room3.PutItemInRoom(Mirror);
         room3.PutItemInRoom(Rope);
