@@ -49,16 +49,14 @@ public class DungeonBuilder {
         Bow = new AmmoWeapon("elven bow", "bow", 15, 10);
     }
     Food Bread = new Food(
-            "bread",
-            "bread",
             "a loaf of stale bread",
+            "bread",
             10
     );
 
     Food Mushroom = new Food(
+            "a pale glowing mushroom\"",
             "mushroom",
-            "mushroom",
-            "a pale glowing mushroom",
             -50
     );
 
