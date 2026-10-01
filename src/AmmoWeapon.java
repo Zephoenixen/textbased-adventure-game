@@ -18,9 +18,4 @@ public class AmmoWeapon extends Weapon {
         ammo --;
         IO.println("you have " + ammo + " left in your weapon");
     }
-
-    @Override
-    public String toString() {
-        return Grammar(name) + name;
-    }
 }
