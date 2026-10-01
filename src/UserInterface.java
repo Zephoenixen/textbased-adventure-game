@@ -16,9 +16,14 @@ public class UserInterface {
                 player.takeItemInRoom(item);
             }
 
-            else if (kommando.contains("drop")){
+            else if (kommando.startsWith("drop")){
                 String sub = kommando.substring(5);
-                player.placeItemInRoom(sub);
+                player.PlaceItemInRoom(sub);
+            }
+
+            else if (kommando.startsWith("equip")){
+                String sub = kommando.substring(6);
+                player.EquipItem(sub);
             }
 
             else if (kommando.startsWith("eat ")) {

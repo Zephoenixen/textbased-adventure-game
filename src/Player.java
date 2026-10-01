@@ -57,6 +57,8 @@ public class Player {
         return room != null;
     }
 
+
+    // Items.
     public void takeItemInRoom(String sub) {
         Item takenItem = myRoom.TakeItemFromRoom(sub);
         if (takenItem == null) {
@@ -67,7 +69,7 @@ public class Player {
         IO.println("You have taken " + takenItem + " and it is now in your inventory");
     }
 
-    public void placeItemInRoom(String sub) {
+    public void PlaceItemInRoom(String sub) {
         Item itemToPlace = inv.Search(sub);
         if (itemToPlace == null){
             IO.println("You dont have " + sub + " in your inventory");
@@ -85,7 +87,23 @@ public class Player {
     private boolean canLoot(){
         return myRoom.isThereRoomLoot();
     }
+    // Equipment
+    public void Attack() {
+        weaponSlot.Attack();
+    }
 
+    public void EquipItem(String sub) {
+        Weapon weaponToEquip = (Weapon) inv.Search(sub);
+        if (weaponToEquip == null){
+            IO.println("You dont have " + sub + " in your inventory");
+            return;
+        }
+        weaponSlot = weaponToEquip;
+        IO.println("You have equipped the " + weaponSlot.name);
+
+    }
+
+    // Food.
     public String getHealthStatus(){
         if (health == 100){
             return "You are in perfect health";
@@ -115,8 +133,6 @@ public class Player {
         if (fromInventory) inv.RemoveItem(item.getShorthand());
         return EatResult.EATEN;
     }
-
-    public void Attack() {
-        weaponSlot.Attack();
-    }
 }
+
+
