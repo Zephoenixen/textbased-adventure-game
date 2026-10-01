@@ -108,19 +108,13 @@ public class Player {
             item = myRoom.TakeItemFromRoom(name);
             fromInventory = false;
         }
-        if (item == null){
-            return EatResult.NOT_FOUND;
-        }
+        if (item == null) return EatResult.NOT_FOUND;
         if (!(item instanceof Food food)) {
-            if (!fromInventory){
-                myRoom.PutItemInRoom(item);
-            }
+            if (!fromInventory) myRoom.PutItemInRoom(item);
             return EatResult.NOT_FOOD;
         }
-      health += food.getHealthPoints();
-        if (fromInventory) {
-            inv.RemoveItem(item.getShorthand());
-        }
+        health += food.getHealthPoints();
+        if (fromInventory) inv.RemoveItem(item.getShorthand());
         return EatResult.EATEN;
     }
 
