@@ -8,7 +8,7 @@ public class MeleeWeapon extends Weapon {
 
     @Override
     public void Attack(){
-        IO.println("you attack the " + "the air" + " with your " + name + "it takes " + damage + " damage.");
+        IO.println("you attack the " + "air" + " with your " + name + " it takes " + damage + " damage.");
     }
 
 }

@@ -14,8 +14,8 @@ public class AmmoWeapon extends Weapon {
             IO.println("You have no ammo with the " + name);
             return;
         }
-        IO.println("you attack the " + "the air" + " with your " + name + "it takes " + damage + " damage.");
+        IO.println("you attack the " + "air" + " with your " + name + " it takes " + damage + " damage.");
         ammo --;
-        IO.println("you have " + ammo + " left in your weapon");
+        IO.println("you have " + ammo + "ammunition left in your weapon");
     }
 }
