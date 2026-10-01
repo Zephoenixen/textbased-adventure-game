@@ -1,4 +1,4 @@
-public class MeleeWeapon extends Item implements Weapon {
+public class MeleeWeapon extends Weapon {
     int damage;
 
     MeleeWeapon(String n, String sh, String g, int d){

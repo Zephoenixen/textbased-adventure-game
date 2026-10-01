@@ -1,4 +1,4 @@
-public class AmmoWeapon extends Item implements Weapon {
+public class AmmoWeapon extends Weapon {
     int damage;
     int ammo;
 

@@ -1,5 +1,12 @@
-public interface Weapon {
+public abstract class Weapon extends Item {
 
-    void Attack();
+    Weapon(String n, String sh, String g) {
+        super(n, sh, g);
+    }
+
+    public void Attack(){
+
+    }
 }
+
 
