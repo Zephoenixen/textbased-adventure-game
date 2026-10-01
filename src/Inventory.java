@@ -29,7 +29,6 @@ public class Inventory {
 
             if(items.get(i) == null) {
                 invReadout.append("ERROR");
-                break;
             }
             invReadout.append(items.get(i));
         }
