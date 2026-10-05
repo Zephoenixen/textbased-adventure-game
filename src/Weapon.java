@@ -4,7 +4,8 @@ public abstract class Weapon extends Item {
         super(n, sh);
     }
 
-    public boolean Attack(){
+    public boolean Attack(Enemy target){
+
     }
 }
 

@@ -7,8 +7,6 @@ public class Inventory {
         return !items.isEmpty();
     }
 
-
-
     public String ItemList(){
         StringBuilder invReadout;
         invReadout = new StringBuilder();

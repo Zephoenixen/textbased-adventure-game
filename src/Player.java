@@ -59,27 +59,23 @@ public class Player {
 
 
     // Items.
-    public void takeItemInRoom(String sub) {
+    public boolean takeItemInRoom(String sub) {
         Item takenItem = myRoom.TakeItemFromRoom(sub);
-        if (takenItem == null) {
-            IO.println("There is no " + sub + " in this room");
-            return;
-        }
+        if (takenItem == null) return false;
+
         inv.AddItem(takenItem);
-        IO.println("You have taken " + takenItem + " and it is now in your inventory");
+        return true;
     }
 
-    public void PlaceItemInRoom(String sub) {
+    public boolean placeItemInRoom(String sub) {
         Item itemToPlace = inv.Search(sub);
-        if (itemToPlace == null){
-            IO.println("You dont have " + sub + " in your inventory");
-            return;
-        }
+        if (itemToPlace == null) return false;
+
         myRoom.PutItemInRoom(itemToPlace);
-        IO.println("You have dropped " + itemToPlace + " in this room");
+        return true;
     }
 
-    public void ListItems(){
+    public void listItems(){
         if (inv.notEmpty()) IO.println("You are carrying: " + inv.ItemList());
         else IO.println("Your inventory is empty");
     }
@@ -88,23 +84,18 @@ public class Player {
         return myRoom.isThereRoomLoot();
     }
     // Equipment
-    public void Attack() {
-        if(weaponSlot == null){
-            IO.println("you have no weapon to attack with");
-            return;
-        }
-        weaponSlot.Attack();
+    public boolean attack(String enemy) {
+        if(weaponSlot == null) return false;
+        weaponSlot.Attack(enemy);
+        return true;
     }
 
-    public void EquipItem(String sub) {
+    public boolean equipItem(String sub) {
         Weapon weaponToEquip = (Weapon) inv.Search(sub);
-        if (weaponToEquip == null){
-            IO.println("You dont have " + sub + " in your inventory");
-            return;
-        }
-        weaponSlot = weaponToEquip;
-        IO.println("You have equipped the " + weaponSlot.name);
+        if (weaponToEquip == null) return false;
 
+        weaponSlot = weaponToEquip;
+        return true;
     }
 
     // Food.

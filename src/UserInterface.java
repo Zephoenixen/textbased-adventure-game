@@ -1,5 +1,5 @@
 public class UserInterface {
-    private Player player;
+    private final Player player;
 
     public UserInterface(Player player) {
         this.player = player;
@@ -11,20 +11,46 @@ public class UserInterface {
 
         while (running) {
             String kommando = IO.readln().trim().toLowerCase();
+
             if(kommando.contains("take")){
-                String item = kommando.substring(5);
-                player.takeItemInRoom(item);
+                String sub = kommando.substring(5);
+                if (!player.takeItemInRoom(sub)) {
+                    IO.println("There is no " + sub + " in this room");
+                    return;
+                }
+                IO.println("You have taken " + sub + " from the room and it is now in your inventory");
+
             }
 
             else if (kommando.startsWith("drop")){
                 String sub = kommando.substring(5);
-                player.PlaceItemInRoom(sub);
+                if (!player.placeItemInRoom(sub)) {
+                    IO.println("There is no " + sub + " in your inventory");
+                    return;
+                }
+                IO.println("You have dropped " + sub + " in this room");
+
             }
 
             else if (kommando.startsWith("equip")){
                 String sub = kommando.substring(6);
-                player.EquipItem(sub);
+                if (!player.equipItem(sub)){
+                    IO.println("You dont have " + sub + " in your inventory");
+                    return;
+                }
+                IO.println("You have equipped the " + sub);
+
+
             }
+
+            else if (kommando.startsWith("attack")){
+                String sub = kommando.substring(7);
+                if (!player.attack(sub)){
+                    IO.println("you have no weapon to attack with");
+                    return;
+                }
+            }
+
 
             else if (kommando.startsWith("eat ")) {
                 String item = kommando.substring(4);
@@ -48,9 +74,8 @@ public class UserInterface {
                 case "go south", "s", "south" -> player.GoSouth();
                 case "go west", "w", "west" -> player.GoWest();
 
-                case "attack" -> player.Attack();
                 case "look" -> player.Look();
-                case "inventory", "i" -> player.ListItems();
+                case "inventory", "i" -> player.listItems();
 
                 case "health" -> DisplayPlayerHealth();
                 case "help" -> HelpList();
@@ -73,7 +98,7 @@ public class UserInterface {
         go south -> moves the player south
         go west -> moves the player west
         
-        attack -> attack with an equipped weapon
+        attack "enemy" -> attack and enemy with the equipped weapon
         take "item" -> takes the item specified if it is in the room and puts it in your inventory
         drop "item" -> drops the item specified if it is in your inventory
         

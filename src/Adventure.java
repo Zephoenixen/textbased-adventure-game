@@ -1,11 +1,10 @@
 public class Adventure {
     //Spillerens nuværende position
     private Room startingRoom;
-    private DungeonBuilder dungeonBuilder;
 
 
     public Adventure(){
-        dungeonBuilder = new DungeonBuilder();
+        DungeonBuilder dungeonBuilder = new DungeonBuilder();
         dungeonBuilder.MakeRooms();
         dungeonBuilder.MakeItems();
         dungeonBuilder.MakeWeapons();
