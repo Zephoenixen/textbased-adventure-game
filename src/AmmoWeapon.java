@@ -9,13 +9,14 @@ public class AmmoWeapon extends Weapon {
     }
 
     @Override
-    public void Attack(){
+    public boolean Attack(){
         if(ammo <= 0) {
             IO.println("You have no ammo with the " + name);
-            return;
+            return false;
         }
         IO.println("you attack the " + "air" + " with your " + name + " it takes " + damage + " damage.");
         ammo --;
         IO.println("you have " + ammo + "ammunition left in your weapon");
+        return true;
     }
 }
