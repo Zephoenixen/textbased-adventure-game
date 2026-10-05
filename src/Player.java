@@ -89,6 +89,10 @@ public class Player {
     }
     // Equipment
     public void Attack() {
+        if(weaponSlot == null){
+            IO.println("you have no weapon to attack with");
+            return;
+        }
         weaponSlot.Attack();
     }
 

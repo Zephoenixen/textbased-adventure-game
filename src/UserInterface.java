@@ -72,13 +72,17 @@ public class UserInterface {
         go east -> moves the player east
         go south -> moves the player south
         go west -> moves the player west
-        look -> describes the current room
-        help -> brings out the list of commands with explainations
-        exit -> exits the program
-        inventory -> view the items you are currently carrying in your inventory
-        health -> shows your current health
+        
+        attack -> attack with an equipped weapon
         take "item" -> takes the item specified if it is in the room and puts it in your inventory
         drop "item" -> drops the item specified if it is in your inventory
+        
+        look -> describes the current room
+        inventory -> view the items you are currently carrying in your inventory
+        health -> shows your current health
+
+        help -> brings out the list of commands with explanations
+        exit -> exits the program
         """);
     }
 }
