@@ -6,6 +6,9 @@ public abstract class Weapon extends Item {
 
     public boolean Attack(){
     }
+    public int getDamage(){
+
+    }
 }
 
 

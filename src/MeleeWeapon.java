@@ -11,6 +11,9 @@ public class MeleeWeapon extends Weapon {
         IO.println("you attack the " + "air" + " with your " + name + " it takes " + damage + " damage.");
         return true;
     }
-
+    @Override
+    public int getDamage() {
+        return damage;
+    }
 }
 
