@@ -33,4 +33,17 @@ public class Enemy {
     public int getHeatlh(){
         return heatlh;
     }
+    public boolean Hit (int damage){
+        health -= damage;
+        if (heatlh <= 0){
+            Die();
+            return false;
+        }
+        return true;
+    }
+    private void Die(){
+        IO.println(name + "dies, dropping " + weapon.getName());
+        room.PutItemInRoom(weapon);
+        room.removeEnemy(this);
+    }
 }

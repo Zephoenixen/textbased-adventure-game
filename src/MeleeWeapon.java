@@ -15,5 +15,7 @@ public class MeleeWeapon extends Weapon {
     public int getDamage() {
         return damage;
     }
+
+
 }
 

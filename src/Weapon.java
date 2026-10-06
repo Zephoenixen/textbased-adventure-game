@@ -4,11 +4,12 @@ public abstract class Weapon extends Item {
         super(n, sh);
     }
 
-    public boolean Attack(){
-    }
-    public int getDamage(){
+    public abstract boolean Attack(){
 
     }
+    public abstract int getDamage(){
+    }
+
 }
 
 
