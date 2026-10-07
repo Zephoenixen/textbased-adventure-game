@@ -75,7 +75,7 @@ public class UserInterface {
                 case "go west", "w", "west" -> player.GoWest();
 
                 case "look" -> player.Look();
-                case "inventory", "i" -> player.listItems();
+                case "inventory", "i" -> InventoryList();
 
                 case "health" -> DisplayPlayerHealth();
                 case "help" -> HelpList();
@@ -92,10 +92,7 @@ public class UserInterface {
     }
 
     private void InventoryList(){
-        if(!player.listItems()) {
-            IO.println("Your inventory is empty");
-            return;
-        }
+        if(!player.listItems()) IO.println("Your inventory is empty");
 
     }
 

@@ -76,8 +76,9 @@ public class Player {
     }
 
     public boolean listItems(){
-        if (inv.notEmpty()) IO.println("You are carrying: " + inv.ItemList());
-        else return false;
+        if(!inv.notEmpty()) return false;
+        IO.println("You are carrying: " + inv.ItemList());
+        return true;
     }
 
     private boolean canLoot(){
