@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class Room {
+    private ArrayList<Enemy> enemies = new ArrayList<>();
     private final Vector2 roomID;
     private String name;
     private String description;
@@ -89,5 +92,29 @@ public class Room {
 
     public void PutItemInRoom(Item item){
         roomItems.AddItem(item);
+    }
+
+    public void addEnemy(Enemy enemy){
+        enemies.add(enemy);
+    }
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
+    public Enemy SearchEnemy(String shorthand){
+        for (Enemy enemy : enemies){
+            if(enemy.getShortHand().equals(shorthand)){
+                return enemy;
+            }
+        }
+        return null;
+    }
+    public Enemy getFirstEnemy(){
+        if (enemies.isEmpty()){
+            return null;
+        }
+        return enemies.getFirst();
+    }
+    public boolean hasEnemies(){
+        return !enemies.isEmpty();
     }
 }

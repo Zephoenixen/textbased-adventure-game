@@ -19,4 +19,8 @@ public class AmmoWeapon extends Weapon {
         IO.println("you have " + ammo + "ammunition left in your weapon");
         return true;
     }
+    @Override
+    public int getDamage(){
+        return damage;
+    }
 }

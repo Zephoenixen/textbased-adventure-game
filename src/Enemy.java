@@ -1,42 +1,49 @@
 public class Enemy {
-    private final String name;
-    private int hitpoints;
-    private int damage;
-    private String[] descriptions;
+    private String name;
+    private String shortHand;
+    private String description;
 
-    Enemy(String n, int hp, int dmg){
-        name = n;
-        hitpoints = hp;
-        damage = dmg;
+    private int health;
+
+    private Weapon weapon;
+    private Room room;
+
+    public Enemy(String name,
+                 String shorthand,
+                 String description,
+                 int health,
+                 Weapon weapon,
+                 Room room){
+        this.name = name;
+        this.shortHand = shorthand;
+        this.description = description;
+        this.health = health;
+        this.weapon = weapon;
+        this.room = room;
     }
-
-    public void setDescriptions(String aliveDescriptions, String deadDescriptions) {
-        this.descriptions[0] = aliveDescriptions;
-        this.descriptions[1] = deadDescriptions;
-    }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
-
-    public int getDamage() {
-        return damage;
+    public String getShortHand(){
+        return shortHand;
     }
-
-    public String getDescription() {
-        if(alive()) return descriptions[0];
-        else return descriptions[1];
+    public String getDescription(){
+        return description;
     }
-
-    public void setHitpoints(int hitpoints) {
-        this.hitpoints = hitpoints;
+    public int getHealth(){
+        return health;
     }
-
-    public void takeDamage(int damage){
-        setHitpoints(hitpoints-damage);
+    public boolean Hit (int damage){
+        health -= damage;
+        if (health <= 0){
+            Die();
+            return false;
+        }
+        return true;
     }
-
-    private boolean alive(){
-        return (hitpoints > 0);
+    private void Die(){
+        IO.println(name + "dies, dropping " + weapon.getName());
+        room.PutItemInRoom(weapon);
+        room.removeEnemy(this);
     }
 }

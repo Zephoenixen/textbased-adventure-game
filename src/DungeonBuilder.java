@@ -1,9 +1,13 @@
+import javax.swing.*;
+
 public class DungeonBuilder {
     private Room room1,room2,room3,room4,room5,room6,room7,room8,room9;
 
     private Item Diamond, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
 
-    private Weapon Sword, Bow, Torch;
+    private Weapon Sword, Bow, Torch, Club;
+
+    private Enemy Troll, Goblin, Bug;
 
     private void RightConnection(Room r1, Room r2){
         r1.AssignEast(r2);
@@ -47,6 +51,7 @@ public class DungeonBuilder {
         Sword = new MeleeWeapon("silver rapier", "sword", 10 );
         Torch = new MeleeWeapon("burning torch", "torch", 5);
         Bow = new AmmoWeapon("elven bow", "bow", 15, 10);
+        Club = new MeleeWeapon("heavy stick", "club",7 );
     }
     Food Bread = new Food(
             "loaf of stale bread",
@@ -59,6 +64,17 @@ public class DungeonBuilder {
             "mushroom",
             -50
     );
+
+    public void MakeEnemies(){
+        Troll = new Enemy(
+                "A cave troll",
+                "Troll",
+                "Ugly looking thing",
+                20,
+                Club,
+                room1
+        );
+    }
 
     public void AssignRooms(){
                // Assign first row.
@@ -126,5 +142,8 @@ public class DungeonBuilder {
         room9.PutItemInRoom(Shoes);
         room9.PutItemInRoom(Clock);
 
+    }
+    public void assignEnemies(){
+        room3.addEnemy(Troll);
     }
 }
