@@ -84,7 +84,7 @@ public class Player {
         return myRoom.isThereRoomLoot();
     }
     // Equipment
-    public boolean attack(String enemy) {
+    public boolean attack(Enemy enemy) {
         if(weaponSlot == null) return false;
         weaponSlot.Attack(enemy);
         return true;
