@@ -7,20 +7,16 @@ public class AmmoWeapon extends Weapon {
         damage = d;
         ammo = a;
     }
-
     @Override
-    public boolean Attack(Enemy enemy){
-        if(ammo <= 0) {
-            IO.println("You have no ammo with the " + name);
+    public boolean Attack(String target){
+        if (ammo <= 0){
+            IO.println("You have no ammo with " + name);
             return false;
         }
-        IO.println("you attack the " + "air" + " with your " + name + " it takes " + damage + " damage.");
-        ammo --;
-        IO.println("you have " + ammo + "ammunition left in your weapon");
+
+        ammo--;
+        IO.println("You attack the " + target + " with your " + name +
+                ". It takes " + damage + " damage.");
         return true;
-    }
-    @Override
-    public int getDamage(){
-        return damage;
     }
 }

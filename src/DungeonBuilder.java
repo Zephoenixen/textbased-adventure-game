@@ -5,7 +5,7 @@ public class DungeonBuilder {
 
     private Item Diamond, Bottle, Mirror, Rope, Coin, Amulet, Candle, Book, Doll, Lantern, Jar, Shoes, Clock;
 
-    private Weapon Sword, Bow, Torch, Club;
+    private Weapon Sword, Bow, Torch, Club, Dagger;
 
     private Enemy Troll, Goblin, Bug;
 
@@ -52,6 +52,7 @@ public class DungeonBuilder {
         Torch = new MeleeWeapon("burning torch", "torch", 5);
         Bow = new AmmoWeapon("elven bow", "bow", 15, 10);
         Club = new MeleeWeapon("heavy stick", "club",7 );
+        Dagger = new MeleeWeapon("small  sword", "dagger", 5);
     }
     Food Bread = new Food(
             "loaf of stale bread",
@@ -69,11 +70,24 @@ public class DungeonBuilder {
         Troll = new Enemy(
                 "A cave troll",
                 "Troll",
-                "Ugly looking thing",
+                "Alive",
+                "Dead",
                 20,
                 Club,
-                room1
+                room3
         );
+        Goblin = new Enemy(
+                "A ugly goblin",
+                "Goblin",
+                "Alive",
+                "Dead",
+                10,
+                Dagger,
+                room6
+
+        );
+
+
     }
 
     public void AssignRooms(){
@@ -145,5 +159,6 @@ public class DungeonBuilder {
     }
     public void assignEnemies(){
         room3.addEnemy(Troll);
+        room6.addEnemy(Goblin);
     }
 }

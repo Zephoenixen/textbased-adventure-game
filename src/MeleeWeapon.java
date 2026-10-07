@@ -7,13 +7,9 @@ public class MeleeWeapon extends Weapon {
     }
 
     @Override
-    public boolean Attack(Enemy enemy){
+    public boolean Attack(String target){
         IO.println("you attack the " + "air" + " with your " + name + " it takes " + damage + " damage.");
         return true;
-    }
-    @Override
-    public int getDamage() {
-        return damage;
     }
 
 
