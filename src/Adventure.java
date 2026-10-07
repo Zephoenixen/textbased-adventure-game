@@ -12,6 +12,7 @@ public class Adventure {
         dungeonBuilder.AssignNames();
         dungeonBuilder.AssignDescriptions();
         dungeonBuilder.assignItems();
+        dungeonBuilder.assignEnemies();
         startingRoom = dungeonBuilder.getRoom1();
     }
 
