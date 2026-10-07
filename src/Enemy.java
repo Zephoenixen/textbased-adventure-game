@@ -1,7 +1,8 @@
 public class Enemy {
-    private String name;
-    private String shortHand;
-    private String description;
+    private final String name;
+    private final String shortHand;
+    private String bodyDescription;
+    private String corpseDescription;
 
     private int health;
 
@@ -10,13 +11,15 @@ public class Enemy {
 
     public Enemy(String name,
                  String shorthand,
-                 String description,
+                 String aliveDescription,
+                 String deadDescription,
                  int health,
                  Weapon weapon,
                  Room room){
         this.name = name;
         this.shortHand = shorthand;
-        this.description = description;
+        this.bodyDescription = aliveDescription;
+        this.corpseDescription = deadDescription;
         this.health = health;
         this.weapon = weapon;
         this.room = room;
@@ -28,19 +31,26 @@ public class Enemy {
         return shortHand;
     }
     public String getDescription(){
-        return description;
+        if (alive()) return bodyDescription;
+        else return corpseDescription;
     }
     public int getHealth(){
         return health;
     }
-    public boolean Hit (int damage){
+
+    private boolean alive() {
+        return (health > 0);
+    }
+
+    public boolean takeDamage(int damage){
         health -= damage;
-        if (health <= 0){
+        if (!alive()){
             Die();
             return false;
         }
         return true;
     }
+
     private void Die(){
         IO.println(name + "dies, dropping " + weapon.getName());
         room.PutItemInRoom(weapon);
