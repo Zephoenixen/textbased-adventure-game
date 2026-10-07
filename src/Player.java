@@ -75,16 +75,16 @@ public class Player {
         return true;
     }
 
-    public void listItems(){
+    public boolean listItems(){
         if (inv.notEmpty()) IO.println("You are carrying: " + inv.ItemList());
-        else IO.println("Your inventory is empty");
+        else return false;
     }
 
     private boolean canLoot(){
         return myRoom.isThereRoomLoot();
     }
     // Equipment
-    public boolean attack(Enemy enemy) {
+    public boolean attack(String enemy) {
         if(weaponSlot == null) return false;
         weaponSlot.Attack(enemy);
         return true;

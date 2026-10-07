@@ -91,6 +91,14 @@ public class UserInterface {
         IO.println("health: " + player.getHealth() + " - " + player.getHealthStatus());
     }
 
+    private void InventoryList(){
+        if(!player.listItems()) {
+            IO.println("Your inventory is empty");
+            return;
+        }
+
+    }
+
     private void HelpList(){
         IO.println("""
         go north -> moves the player north

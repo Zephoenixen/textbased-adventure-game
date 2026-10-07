@@ -4,11 +4,8 @@ public abstract class Weapon extends Item {
         super(n, sh);
     }
 
-    public boolean Attack(Enemy target){
+    public abstract boolean Attack(String target);
 
-    }
-    public abstract int getDamage(){
-    }
 
 }
 
