@@ -3,7 +3,7 @@ public class Enemy {
     private String shortHand;
     private String description;
 
-    private int heatlh;
+    private int health;
 
     private Weapon weapon;
     private Room room;
@@ -17,7 +17,7 @@ public class Enemy {
         this.name = name;
         this.shortHand = shorthand;
         this.description = description;
-        this.heatlh = health;
+        this.health = health;
         this.weapon = weapon;
         this.room = room;
     }
@@ -30,12 +30,12 @@ public class Enemy {
     public String getDescription(){
         return description;
     }
-    public int getHeatlh(){
-        return heatlh;
+    public int getHealth(){
+        return health;
     }
     public boolean Hit (int damage){
         health -= damage;
-        if (heatlh <= 0){
+        if (health <= 0){
             Die();
             return false;
         }
