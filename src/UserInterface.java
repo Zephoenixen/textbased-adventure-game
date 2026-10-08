@@ -13,26 +13,29 @@ public class UserInterface {
             String kommando = IO.readln().trim().toLowerCase();
 
             if(kommando.contains("take")){
+                if(kommando.length() <= 5) continue;
                 String sub = kommando.substring(5);
                 if (!player.takeItemInRoom(sub)) {
                     IO.println("There is no " + sub + " in this room");
-                    return;
+                    continue;
                 }
                 IO.println("You have taken " + sub + " from the room and it is now in your inventory");
 
             }
 
             else if (kommando.startsWith("drop")){
+                if(kommando.length() <= 5) continue;
                 String sub = kommando.substring(5);
                 if (!player.placeItemInRoom(sub)) {
                     IO.println("There is no " + sub + " in your inventory");
-                    return;
+                    continue;
                 }
                 IO.println("You have dropped " + sub + " in this room");
 
             }
 
             else if (kommando.startsWith("equip")){
+                if(kommando.length() <= 6) continue;
                 String sub = kommando.substring(6);
                 if (!player.equipItem(sub)){
                     IO.println("You dont have " + sub + " in your inventory");
@@ -44,17 +47,19 @@ public class UserInterface {
             }
 
             else if (kommando.startsWith("attack")){
+                if(kommando.length() <= 7) continue;
                 String sub = kommando.substring(7);
                 String playerAttack = player.attack(sub);
                 if (playerAttack == null){
                     IO.println("you have no weapon to attack with");
-                    return;
+                    continue;
                 }
                 IO.println(playerAttack);
             }
 
 
             else if (kommando.startsWith("eat ")) {
+                if(kommando.length() <= 4) continue;
                 String item = kommando.substring(4);
                 EatResult result = player.Eat(item);
 

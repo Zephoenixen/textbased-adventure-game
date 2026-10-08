@@ -107,7 +107,7 @@ public class Room {
         return encounter.toString();
     }
 
-    private boolean noEncounter(){
+    public boolean noEncounter(){
         return encounter.noEnemies();
     }
 

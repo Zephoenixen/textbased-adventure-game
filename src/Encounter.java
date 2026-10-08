@@ -17,8 +17,6 @@ public class Encounter {
         invReadout.append(enemies.getFirst());
         if(enemies.size() == 1) return invReadout.toString();
 
-        IO.println(enemies.size());
-
         for (int i = 1; i < enemies.size(); i++) {
             if (i+1 == enemies.size()) invReadout.append(" and ");
             else invReadout.append(", ");

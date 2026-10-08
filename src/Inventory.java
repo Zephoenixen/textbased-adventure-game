@@ -17,8 +17,6 @@ public class Inventory {
         invReadout.append(items.getFirst());
         if(items.size() == 1) return invReadout.toString();
 
-        IO.println(items.size());
-
         for (int i = 1; i < items.size(); i++) {
             if (i+1 == items.size()) invReadout.append(" and ");
             else invReadout.append(", ");

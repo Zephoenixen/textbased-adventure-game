@@ -52,7 +52,7 @@ public class Enemy {
     }
 
     private void Die(){
-        IO.println(name + "dies, dropping " + weapon.getName());
+        IO.println(name + " dies, dropping " + weapon.getName());
         room.PutItemInRoom(weapon);
         room.removeEnemyFromRoom(this.shortHand);
     }

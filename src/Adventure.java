@@ -8,6 +8,7 @@ public class Adventure {
         dungeonBuilder.MakeRooms();
         dungeonBuilder.MakeItems();
         dungeonBuilder.MakeWeapons();
+        dungeonBuilder.MakeEnemies();
         dungeonBuilder.AssignRooms();
         dungeonBuilder.AssignNames();
         dungeonBuilder.AssignDescriptions();

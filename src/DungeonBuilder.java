@@ -69,7 +69,7 @@ public class DungeonBuilder {
     public void MakeEnemies(){
         Troll = new Enemy(
                 "A cave troll",
-                "Troll",
+                "troll",
                 "Alive",
                 "Dead",
                 20,
@@ -78,7 +78,7 @@ public class DungeonBuilder {
         );
         Goblin = new Enemy(
                 "A ugly goblin",
-                "Goblin",
+                "goblin",
                 "Alive",
                 "Dead",
                 10,

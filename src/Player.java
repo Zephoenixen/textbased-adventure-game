@@ -38,7 +38,10 @@ public class Player {
 
     public void Look(){
         IO.println("You are in the " + myRoom.getName() + ", it is " + myRoom.getDescription());
-        if(canLoot()) IO.println("There is " + myRoom.getRoomLoot() + " in this room");
+        IO.println(" ");
+        if(!cannotLoot()) IO.println("There is " + myRoom.getRoomLoot());
+        IO.println(" ");
+        if(!myRoom.noEncounter()) IO.println("There is " + myRoom.getEncounter());
     }
 
     public boolean North(){
@@ -81,7 +84,7 @@ public class Player {
         return true;
     }
 
-    private boolean canLoot(){
+    private boolean cannotLoot(){
         return myRoom.noRoomLoot();
     }
     // Equipment
@@ -89,6 +92,7 @@ public class Player {
         if(weaponSlot == null) return null;
 
         Enemy enemyToAttack = myRoom.nameToEnemy(enemy);
+        if(enemyToAttack == null) return "no enemy of that name in this room";
         Attack attackInfo = weaponSlot.attack(enemyToAttack);
 
         if(!attackInfo.getSuccess()) return attackInfo.getDescription();
