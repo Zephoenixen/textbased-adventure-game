@@ -103,10 +103,18 @@ public class Room {
     }
 
     public String getEncounter(){
+        if(noEncounter()) return null;
         return encounter.toString();
     }
 
-    public boolean noEncounter(){
+    private boolean noEncounter(){
         return encounter.noEnemies();
+    }
+
+    public boolean attackEnemy(String enemySH, int damage){
+        Enemy enemyToAttack = encounter.search(enemySH);
+        if(enemyToAttack == null) return false;
+        enemyToAttack.takeDamage(damage);
+        return true;
     }
 }

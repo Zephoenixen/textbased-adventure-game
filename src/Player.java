@@ -87,7 +87,8 @@ public class Player {
     // Equipment
     public boolean attack(String enemy) {
         if(weaponSlot == null) return false;
-        weaponSlot.Attack(enemy);
+
+        weaponSlot.Attack();
         return true;
     }
 
