@@ -37,11 +37,11 @@ public class Encounter {
         return null;
     }
 
-    public void addItem(Enemy enemy){
+    public void addEnemy(Enemy enemy){
         enemies.add(enemy);
     }
 
-    public void removeItem(String enemyName){
+    public void removeEnemy(String enemyName){
         Enemy enemyToRemove = search(enemyName);
         if(enemyToRemove == null) return;
         enemies.remove(enemyToRemove);
