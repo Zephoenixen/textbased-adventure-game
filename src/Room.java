@@ -1,5 +1,4 @@
 public class Room {
-    private final Vector2 roomID;
     private String name;
     private String description;
     private Encounter encounter = new Encounter();
@@ -9,10 +8,6 @@ public class Room {
     private Room eastRoom;
     private Room southRoom;
     private Room westRoom;
-
-    Room(Vector2 ID) {
-        this.roomID = ID;
-    }
 
     // Getters for position, name and description.
 

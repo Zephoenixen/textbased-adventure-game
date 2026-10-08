@@ -20,15 +20,15 @@ public class DungeonBuilder {
     }
 
     public void MakeRooms(){
-        room1 = new Room(new Vector2(0,0));
-        room2 = new Room(new Vector2(0,1));
-        room3 = new Room(new Vector2(0,2));
-        room4 = new Room(new Vector2(1,0));
-        room5 = new Room(new Vector2(1,1));
-        room6 = new Room(new Vector2(1,2));
-        room7 = new Room(new Vector2(2,0));
-        room8 = new Room(new Vector2(2,1));
-        room9 = new Room(new Vector2(2,2));
+        room1 = new Room();
+        room2 = new Room();
+        room3 = new Room();
+        room4 = new Room();
+        room5 = new Room();
+        room6 = new Room();
+        room7 = new Room();
+        room8 = new Room();
+        room9 = new Room();
     }
 
     public void MakeItems(){
