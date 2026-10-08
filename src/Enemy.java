@@ -1,38 +1,46 @@
 public class Enemy {
     private final String name;
     private final String shortHand;
-    private String bodyDescription;
-    private String corpseDescription;
+    private String aliveInfo;
+    private String deadInfo;
 
     private int health;
 
     private Weapon weapon;
     private Room room;
+    private String deathDescription;
 
     public Enemy(String name,
                  String shorthand,
-                 String aliveDescription,
-                 String deadDescription,
+                 String visualInfo,
+                 String corpseInfo,
                  int health,
                  Weapon weapon,
                  Room room){
         this.name = name;
         this.shortHand = shorthand;
-        this.bodyDescription = aliveDescription;
-        this.corpseDescription = deadDescription;
+        this.aliveInfo = visualInfo;
+        this.deadInfo = corpseInfo;
         this.health = health;
         this.weapon = weapon;
         this.room = room;
+        deathDescription = name + " dies, dropping " + weapon.getName();
     }
     public String getName(){
         return name;
     }
+
     public String getShorthand(){
         return shortHand;
     }
+
+    public String getDeathDescription() {
+        return deathDescription;
+    }
+
     public String getDescription(){
-        if (alive()) return bodyDescription;
-        else return corpseDescription;
+        if (alive()) return aliveInfo;
+        else return deadInfo;
     }
     public int getHealth(){
         return health;
@@ -52,7 +60,7 @@ public class Enemy {
     }
 
     private void Die(){
-        IO.println(name + " dies, dropping " + weapon.getName());
+        health = 0;
         room.PutItemInRoom(weapon);
         room.removeEnemyFromRoom(this.shortHand);
     }
@@ -69,6 +77,6 @@ public class Enemy {
     }
 
     private boolean isVowel(char ch){
-        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'y';
     }
 }

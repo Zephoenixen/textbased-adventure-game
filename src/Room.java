@@ -115,9 +115,8 @@ public class Room {
         return encounter.search(name);
     }
 
-    public boolean attackEnemy(Enemy enemy, int damage){
-        if(enemy == null) return false;
-        enemy.takeDamage(damage);
-        return true;
+    public String attackEnemy(Enemy enemy, int damage){
+        if (!enemy.takeDamage(damage) ) return enemy.getDeathDescription();
+        return " " +enemy.getHealth();
     }
 }

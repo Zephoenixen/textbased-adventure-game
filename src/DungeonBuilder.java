@@ -48,7 +48,7 @@ public class DungeonBuilder {
     }
 
     public void MakeWeapons(){
-        Sword = new MeleeWeapon("silver rapier", "sword", 10 );
+        Sword = new MeleeWeapon("silver sword", "sword", 10 );
         Torch = new MeleeWeapon("burning torch", "torch", 5);
         Bow = new AmmoWeapon("elven bow", "bow", 15, 10);
         Club = new MeleeWeapon("heavy stick", "club",7 );
@@ -68,7 +68,7 @@ public class DungeonBuilder {
 
     public void MakeEnemies(){
         Troll = new Enemy(
-                "A cave troll",
+                "cave troll",
                 "troll",
                 "Alive",
                 "Dead",
@@ -77,14 +77,13 @@ public class DungeonBuilder {
                 room3
         );
         Goblin = new Enemy(
-                "A ugly goblin",
+                "ugly goblin",
                 "goblin",
-                "Alive",
-                "Dead",
+                "akin to a green, ugly child",
+                "corpse of an ugly, green child",
                 10,
                 Dagger,
                 room6
-
         );
 
 
