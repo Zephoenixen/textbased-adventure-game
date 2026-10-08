@@ -158,7 +158,7 @@ public class DungeonBuilder {
 
     }
     public void assignEnemies(){
-        room3.addEnemy(Troll);
-        room6.addEnemy(Goblin);
+        room3.putEnemyInRoom(Troll);
+        room6.putEnemyInRoom(Goblin);
     }
 }
