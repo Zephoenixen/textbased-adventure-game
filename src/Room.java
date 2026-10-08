@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
 public class Room {
-    private ArrayList<Enemy> enemies = new ArrayList<>();
     private final Vector2 roomID;
     private String name;
     private String description;
+    private Encounter encounter = new Encounter();
     private Inventory roomItems = new Inventory();
 
     private Room northRoom;
@@ -75,9 +73,9 @@ public class Room {
         return westRoom;
     }
 
-    // lootManagement
+    // Loot Management
     public boolean noRoomLoot(){
-        return roomItems.isEmpty();
+        return roomItems.noItems();
     }
 
     public String getRoomLoot() {
@@ -94,27 +92,21 @@ public class Room {
         roomItems.addItem(item);
     }
 
-    public void addEnemy(Enemy enemy){
-        enemies.add(enemy);
+    // Enemy Management
+
+    public void putEnemyInRoom(Enemy enemy){
+        encounter.addEnemy(enemy);
     }
-    public void removeEnemy(Enemy enemy){
-        enemies.remove(enemy);
+
+    public void removeEnemyFromRoom(String enemyName){
+        encounter.removeEnemy(enemyName);
     }
-    public Enemy SearchEnemy(String shorthand){
-        for (Enemy enemy : enemies){
-            if(enemy.getShorthand().equals(shorthand)){
-                return enemy;
-            }
-        }
-        return null;
+
+    public String getEncounter(){
+        return encounter.toString();
     }
-    public Enemy getFirstEnemy(){
-        if (enemies.isEmpty()){
-            return null;
-        }
-        return enemies.getFirst();
-    }
-    public boolean hasEnemies(){
-        return !enemies.isEmpty();
+
+    public boolean noEncounter(){
+        return encounter.noEnemies();
     }
 }

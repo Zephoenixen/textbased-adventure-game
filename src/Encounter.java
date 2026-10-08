@@ -3,11 +3,15 @@ import java.util.ArrayList;
 public class Encounter {
     private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
+    public boolean noEnemies(){
+        return enemies.isEmpty();
+    }
+
     public String enemyList(){
         StringBuilder invReadout;
         invReadout = new StringBuilder();
 
-        if(enemies.isEmpty()) return "nothing";
+        if(noEnemies()) return "nothing";
 
 
         invReadout.append(enemies.getFirst());

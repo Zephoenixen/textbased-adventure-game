@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Inventory {
     private ArrayList<Item> items = new ArrayList<>();
 
-    public boolean isEmpty(){
+    public boolean noItems(){
         return items.isEmpty();
     }
 
@@ -11,7 +11,7 @@ public class Inventory {
         StringBuilder invReadout;
         invReadout = new StringBuilder();
 
-        if(items.isEmpty()) return "nothing";
+        if(noItems()) return "nothing";
 
 
         invReadout.append(items.getFirst());
