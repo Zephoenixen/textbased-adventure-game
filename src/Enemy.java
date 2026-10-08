@@ -24,7 +24,7 @@ public class Enemy {
         this.health = health;
         this.weapon = weapon;
         this.room = room;
-        deathDescription = name + " dies, dropping " + weapon.getName();
+        deathDescription = name + " dies, dropping " + Grammar(weapon.getName()) + weapon.getName();
     }
     public String getName(){
         return name;
@@ -59,6 +59,10 @@ public class Enemy {
         return true;
     }
 
+    public Attack dealDamage(){
+        return weapon.attack(this, true);
+    }
+
     private void Die(){
         health = 0;
         room.PutItemInRoom(weapon);
@@ -71,7 +75,7 @@ public class Enemy {
     }
 
     public String Grammar(String word){
-        char ch = word.toLowerCase().charAt(1);
+        char ch = word.toLowerCase().charAt(0);
         if(isVowel(ch)) return "an ";
         else return "a ";
     }

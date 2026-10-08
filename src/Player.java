@@ -95,16 +95,27 @@ public class Player {
 
         if(enemyToAttack == null) return "no enemy of that name in this room";
 
-        String death = "";
+        String death = null;
+
         Attack attackInfo = weaponSlot.attack(enemyToAttack);
+
+        StringBuilder attackFeedback = new StringBuilder(attackInfo.getDescription());
 
         if(attackInfo.getSuccess()) {
             String attackResult = myRoom.attackEnemy(enemyToAttack, attackInfo.getDamage());
-            if(attackResult.charAt(0) == ' ') return attackInfo.getDescription() + " It has" + attackResult + " health left.";
-            death = " The " + attackResult;
+            if(attackResult.charAt(0) == ' ') attackFeedback.append(" It has").append(attackResult).append(" health left.");
+            else death = " The " + attackResult;
         }
 
-        return attackInfo.getDescription() + death;
+        if (death == null){
+            Attack attackBack;
+            attackBack = enemyToAttack.dealDamage();
+
+            health -= attackBack.getDamage();
+            attackFeedback.append("\n").append(attackBack.getDescription()).append(". You now have ").append(health).append(" health left");
+            return attackFeedback.toString();
+        }
+        else return attackInfo.getDescription() + death;
     }
 
     public boolean equipItem(String sub) {

@@ -1,12 +1,13 @@
 public abstract class Weapon extends Item {
-
-    Weapon(String n, String sh) {
+    int damage;
+    Weapon(String n, String sh, int d) {
         super(n, sh);
+        this.damage = d;
     }
 
     public abstract Attack attack(Enemy target);
 
-
+    public abstract Attack attack(Enemy attacker, boolean enemyAttack);
 }
 
 

@@ -21,7 +21,7 @@ public class Item {
     }
 
     public String Grammar(String word){
-        char ch = word.toLowerCase().charAt(1);
+        char ch = word.toLowerCase().charAt(0);
         if(isVowel(ch)) return "an ";
         else return "a ";
     }

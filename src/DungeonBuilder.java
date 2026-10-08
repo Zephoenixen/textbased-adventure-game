@@ -51,7 +51,7 @@ public class DungeonBuilder {
         Sword = new MeleeWeapon("silver sword", "sword", 10 );
         Torch = new MeleeWeapon("burning torch", "torch", 5);
         Bow = new AmmoWeapon("elven bow", "bow", 15, 10);
-        Club = new MeleeWeapon("heavy stick", "club",7 );
+        Club = new MeleeWeapon("heavy stick", "club", 7);
         Dagger = new MeleeWeapon("small  sword", "dagger", 5);
     }
     Food Bread = new Food(

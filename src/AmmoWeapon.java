@@ -1,10 +1,8 @@
 public class AmmoWeapon extends Weapon {
-    int damage;
     int ammo;
 
     AmmoWeapon(String n, String sh, int d, int a){
-        super(n, sh);
-        damage = d;
+        super(n, sh, d);
         ammo = a;
     }
     @Override
@@ -19,5 +17,11 @@ public class AmmoWeapon extends Weapon {
         ammo--;
         descript = "You attack the " + target + " with your " + name + ". It takes " + damage + " damage.";
         return new Attack(damage, descript, true);
+    }
+
+    @Override
+    public Attack attack(Enemy attacker, boolean enemyAttack){
+        String descrip = attacker + " shoots you";
+        return new Attack(damage, descrip, true);
     }
 }

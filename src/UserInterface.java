@@ -39,7 +39,7 @@ public class UserInterface {
                 String sub = kommando.substring(6);
                 if (!player.equipItem(sub)){
                     IO.println("You dont have " + sub + " in your inventory");
-                    return;
+                    break;
                 }
                 IO.println("You have equipped the " + sub);
 
