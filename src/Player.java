@@ -92,12 +92,13 @@ public class Player {
         if(weaponSlot == null) return null;
 
         Enemy enemyToAttack = myRoom.nameToEnemy(enemy);
+
         if(enemyToAttack == null) return "no enemy of that name in this room";
+
         Attack attackInfo = weaponSlot.attack(enemyToAttack);
 
-        if(!attackInfo.getSuccess()) return attackInfo.getDescription();
+        if(attackInfo.getSuccess()) myRoom.attackEnemy(enemyToAttack, attackInfo.getDamage());
 
-        myRoom.attackEnemy(enemyToAttack, attackInfo.getDamage());
         return attackInfo.getDescription();
     }
 
