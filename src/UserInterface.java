@@ -10,41 +10,32 @@ public class UserInterface {
         player.Look();
 
         while (running) {
-            String kommando = IO.readln().trim().toLowerCase();
+            String command = IO.readln().trim().toLowerCase();
 
-            if(kommando.contains("take")){
-                if(kommando.length() <= 5) {
-                    String sub = kommando.substring(5);
-                    take(sub);
-                }
+            if(commandIsValid(command, "take")){
+                String sub = command.substring(5);
+                take(sub);
             }
 
-            else if (kommando.startsWith("drop")){
-                if(kommando.length() > 5) {
-                    String sub = kommando.substring(5);
-                    drop(sub);
-                }
-
+            else if (commandIsValid(command, "drop")){
+                String sub = command.substring(5);
+                drop(sub);
             }
 
-            else if (kommando.startsWith("equip")){
-                if(kommando.length() > 6) {
-                    String sub = kommando.substring(6);
-                    equip(sub);
-                }
+            else if (commandIsValid(command, "equip")){
+                String sub = command.substring(6);
+                equip(sub);
             }
 
-            else if (kommando.startsWith("attack")){
-                if(kommando.length() > 7) {
-                String sub = kommando.substring(7);
+            else if (commandIsValid(command ,"attack")){
+                String sub = command.substring(7);
                 attack(sub);
-                }
             }
 
 
-            else if (kommando.startsWith("eat ")) {
-                if(kommando.length() <= 4) continue;
-                String item = kommando.substring(4);
+            else if (command.startsWith("eat ")) {
+                if(command.length() <= 4) continue;
+                String item = command.substring(4);
                 EatResult result = player.Eat(item);
 
                 switch (result) {
@@ -58,7 +49,7 @@ public class UserInterface {
             }
             else {
 
-            switch (kommando) {
+            switch (command) {
 
                 case "go north", "n", "north" -> player.GoNorth();
                 case "go east", "e", "east" -> player.GoEast();
@@ -78,6 +69,7 @@ public class UserInterface {
         }
     }
 
+
     private void DisplayPlayerHealth(){
         IO.println("health: " + player.getHealth() + " - " + player.getHealthStatus());
     }
@@ -85,6 +77,10 @@ public class UserInterface {
     private void InventoryList(){
         if(!player.listItems()) IO.println("Your inventory is empty");
 
+    }
+
+    private boolean commandIsValid(String command, String commandWord){
+        return (command.contains(commandWord) && command.length() > commandWord.length());
     }
 
 
