@@ -45,10 +45,12 @@ public class UserInterface {
 
             else if (kommando.startsWith("attack")){
                 String sub = kommando.substring(7);
-                if (!player.attack(sub)){
+                String playerAttack = player.attack(sub);
+                if (playerAttack == null){
                     IO.println("you have no weapon to attack with");
                     return;
                 }
+                IO.println(playerAttack);
             }
 
 

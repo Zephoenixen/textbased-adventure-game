@@ -85,11 +85,16 @@ public class Player {
         return myRoom.noRoomLoot();
     }
     // Equipment
-    public boolean attack(String enemy) {
-        if(weaponSlot == null) return false;
+    public String attack(String enemy) {
+        if(weaponSlot == null) return null;
 
-        weaponSlot.Attack();
-        return true;
+        Enemy enemyToAttack = myRoom.nameToEnemy(enemy);
+        Attack attackInfo = weaponSlot.attack(enemyToAttack);
+
+        if(!attackInfo.getSuccess()) return attackInfo.getDescription();
+
+        myRoom.attackEnemy(enemyToAttack, attackInfo.getDamage());
+        return attackInfo.getDescription();
     }
 
     public boolean equipItem(String sub) {

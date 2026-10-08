@@ -79,7 +79,7 @@ public class Room {
     }
 
     public String getRoomLoot() {
-        return roomItems.itemList();
+        return roomItems.toString();
     }
 
     public Item TakeItemFromRoom(String item){
@@ -111,10 +111,13 @@ public class Room {
         return encounter.noEnemies();
     }
 
-    public boolean attackEnemy(String enemySH, int damage){
-        Enemy enemyToAttack = encounter.search(enemySH);
-        if(enemyToAttack == null) return false;
-        enemyToAttack.takeDamage(damage);
+    public Enemy nameToEnemy(String name){
+        return encounter.search(name);
+    }
+
+    public boolean attackEnemy(Enemy enemy, int damage){
+        if(enemy == null) return false;
+        enemy.takeDamage(damage);
         return true;
     }
 }

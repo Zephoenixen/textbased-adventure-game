@@ -8,15 +8,16 @@ public class AmmoWeapon extends Weapon {
         ammo = a;
     }
     @Override
-    public boolean Attack(String target){
+    public Attack attack(Enemy target){
+        String descript;
+
         if (ammo <= 0){
-            IO.println("You have no ammo with " + name);
-            return false;
+            descript = "Your " + name + " has no ammunition";
+            return new Attack(damage, descript, false);
         }
 
         ammo--;
-        IO.println("You attack the " + target + " with your " + name +
-                ". It takes " + damage + " damage.");
-        return true;
+        descript = "You attack the " + target + " with your " + name + ". It takes " + damage + " damage.";
+        return new Attack(damage, descript, true);
     }
 }
