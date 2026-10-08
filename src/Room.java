@@ -76,8 +76,8 @@ public class Room {
     }
 
     // lootManagement
-    public boolean isThereRoomLoot(){
-        return roomItems.notEmpty();
+    public boolean noRoomLoot(){
+        return roomItems.isEmpty();
     }
 
     public String getRoomLoot() {

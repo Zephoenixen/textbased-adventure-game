@@ -76,13 +76,13 @@ public class Player {
     }
 
     public boolean listItems(){
-        if(!inv.notEmpty()) return false;
+        if(inv.isEmpty()) return false;
         IO.println("You are carrying: " + inv.ItemList());
         return true;
     }
 
     private boolean canLoot(){
-        return myRoom.isThereRoomLoot();
+        return myRoom.noRoomLoot();
     }
     // Equipment
     public boolean attack(String enemy) {

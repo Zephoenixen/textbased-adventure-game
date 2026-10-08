@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Inventory {
     private ArrayList<Item> items = new ArrayList<>();
 
-    public boolean notEmpty(){
-        return !items.isEmpty();
+    public boolean isEmpty(){
+        return items.isEmpty();
     }
 
     public String ItemList(){
