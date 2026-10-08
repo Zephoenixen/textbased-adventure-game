@@ -54,6 +54,21 @@ public class Enemy {
     private void Die(){
         IO.println(name + "dies, dropping " + weapon.getName());
         room.PutItemInRoom(weapon);
-        room.removeEnemy(this);
+        room.removeEnemyFromRoom(this.shortHand);
+    }
+
+    @Override
+    public String toString() {
+        return Grammar(name) + name;
+    }
+
+    public String Grammar(String word){
+        char ch = word.toLowerCase().charAt(1);
+        if(isVowel(ch)) return "an ";
+        else return "a ";
+    }
+
+    private boolean isVowel(char ch){
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
     }
 }
