@@ -13,48 +13,32 @@ public class UserInterface {
             String kommando = IO.readln().trim().toLowerCase();
 
             if(kommando.contains("take")){
-                if(kommando.length() <= 5) continue;
-                String sub = kommando.substring(5);
-                if (!player.takeItemInRoom(sub)) {
-                    IO.println("There is no " + sub + " in this room");
-                    continue;
+                if(kommando.length() <= 5) {
+                    String sub = kommando.substring(5);
+                    take(sub);
                 }
-                IO.println("You have taken " + sub + " from the room and it is now in your inventory");
-
             }
 
             else if (kommando.startsWith("drop")){
-                if(kommando.length() <= 5) continue;
-                String sub = kommando.substring(5);
-                if (!player.placeItemInRoom(sub)) {
-                    IO.println("There is no " + sub + " in your inventory");
-                    continue;
+                if(kommando.length() > 5) {
+                    String sub = kommando.substring(5);
+                    drop(sub);
                 }
-                IO.println("You have dropped " + sub + " in this room");
 
             }
 
             else if (kommando.startsWith("equip")){
-                if(kommando.length() <= 6) continue;
-                String sub = kommando.substring(6);
-                if (!player.equipItem(sub)){
-                    IO.println("You dont have " + sub + " in your inventory");
-                    break;
+                if(kommando.length() > 6) {
+                    String sub = kommando.substring(6);
+                    equip(sub);
                 }
-                IO.println("You have equipped the " + sub);
-
-
             }
 
             else if (kommando.startsWith("attack")){
-                if(kommando.length() <= 7) continue;
+                if(kommando.length() > 7) {
                 String sub = kommando.substring(7);
-                String playerAttack = player.attack(sub);
-                if (playerAttack == null){
-                    IO.println("you have no weapon to attack with");
-                    continue;
+                attack(sub);
                 }
-                IO.println(playerAttack);
             }
 
 
@@ -101,6 +85,39 @@ public class UserInterface {
     private void InventoryList(){
         if(!player.listItems()) IO.println("Your inventory is empty");
 
+    }
+
+
+
+    private void attack(String sub){
+        String playerAttack = player.attack(sub);
+        if (playerAttack == null){
+            IO.println("you have no weapon to attack with");
+            return;
+        }
+        IO.println(playerAttack);
+    }
+
+    private void equip(String sub){
+        if (!player.equipItem(sub)){
+            IO.println("You dont have " + sub + " in your inventory");
+            return;
+        }
+        IO.println("You have equipped the " + sub);
+    }
+    private void take(String sub){
+        if (!player.takeItemInRoom(sub)) {
+            IO.println("There is no " + sub + " in this room");
+            return;
+        }
+        IO.println("You have taken " + sub + " from the room and it is now in your inventory");
+    }
+    private void drop(String sub){
+        if (!player.placeItemInRoom(sub)) {
+            IO.println("There is no " + sub + " in your inventory");
+            return;
+        }
+        IO.println("You have dropped " + sub + " in this room");
     }
 
     private void HelpList(){
