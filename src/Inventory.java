@@ -7,7 +7,7 @@ public class Inventory {
         return items.isEmpty();
     }
 
-    public String ItemList(){
+    public String itemList(){
         StringBuilder invReadout;
         invReadout = new StringBuilder();
 
@@ -33,17 +33,17 @@ public class Inventory {
 
 
 
-    public void AddItem(Item item){
+    public void addItem(Item item){
         items.add(item);
     }
 
-    public void RemoveItem(String itemName){
-       Item itemToRemove = Search(itemName);
+    public void removeItem(String itemName){
+       Item itemToRemove = search(itemName);
        if(itemToRemove == null) return;
        items.remove(itemToRemove);
     }
 
-    public Item Search(String sub){
+    public Item search(String sub){
         if(items.isEmpty()) return null;
         for (Item item : items) {
             if (item != null && item.getShorthand().equals(sub)) {
@@ -55,6 +55,6 @@ public class Inventory {
 
     @Override
     public String toString() {
-        return items.toString();
+        return itemList();
     }
 }

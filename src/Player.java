@@ -63,12 +63,12 @@ public class Player {
         Item takenItem = myRoom.TakeItemFromRoom(sub);
         if (takenItem == null) return false;
 
-        inv.AddItem(takenItem);
+        inv.addItem(takenItem);
         return true;
     }
 
     public boolean placeItemInRoom(String sub) {
-        Item itemToPlace = inv.Search(sub);
+        Item itemToPlace = inv.search(sub);
         if (itemToPlace == null) return false;
 
         myRoom.PutItemInRoom(itemToPlace);
@@ -77,7 +77,7 @@ public class Player {
 
     public boolean listItems(){
         if(inv.isEmpty()) return false;
-        IO.println("You are carrying: " + inv.ItemList());
+        IO.println("You are carrying: " + inv.itemList());
         return true;
     }
 
@@ -92,7 +92,7 @@ public class Player {
     }
 
     public boolean equipItem(String sub) {
-        Weapon weaponToEquip = (Weapon) inv.Search(sub);
+        Weapon weaponToEquip = (Weapon) inv.search(sub);
         if (weaponToEquip == null) return false;
 
         weaponSlot = weaponToEquip;
@@ -114,7 +114,7 @@ public class Player {
     }
 
     public EatResult Eat(String name) {
-        Item item = inv.Search((name));
+        Item item = inv.search((name));
         boolean fromInventory = true;
         if (item == null) {
             item = myRoom.TakeItemFromRoom(name);
@@ -126,7 +126,7 @@ public class Player {
             return EatResult.NOT_FOOD;
         }
         health += food.getHealthPoints();
-        if (fromInventory) inv.RemoveItem(item.getShorthand());
+        if (fromInventory) inv.removeItem(item.getShorthand());
         return EatResult.EATEN;
     }
 }

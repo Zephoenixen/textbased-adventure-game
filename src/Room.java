@@ -81,17 +81,17 @@ public class Room {
     }
 
     public String getRoomLoot() {
-        return roomItems.ItemList();
+        return roomItems.itemList();
     }
 
     public Item TakeItemFromRoom(String item){
-        Item itemToTake = roomItems.Search(item);
-        roomItems.RemoveItem(item);
+        Item itemToTake = roomItems.search(item);
+        roomItems.removeItem(item);
         return itemToTake;
     }
 
     public void PutItemInRoom(Item item){
-        roomItems.AddItem(item);
+        roomItems.addItem(item);
     }
 
     public void addEnemy(Enemy enemy){
@@ -102,7 +102,7 @@ public class Room {
     }
     public Enemy SearchEnemy(String shorthand){
         for (Enemy enemy : enemies){
-            if(enemy.getShortHand().equals(shorthand)){
+            if(enemy.getShorthand().equals(shorthand)){
                 return enemy;
             }
         }

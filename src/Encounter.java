@@ -26,4 +26,29 @@ public class Encounter {
         }
         return invReadout.toString();
     }
+
+    public Enemy search(String sub){
+        if(enemies.isEmpty()) return null;
+        for (Enemy enemy : enemies) {
+            if (enemy != null && enemy.getShorthand().equals(sub)) {
+                return enemy;
+            }
+        }
+        return null;
+    }
+
+    public void addItem(Enemy enemy){
+        enemies.add(enemy);
+    }
+
+    public void removeItem(String enemyName){
+        Enemy enemyToRemove = search(enemyName);
+        if(enemyToRemove == null) return;
+        enemies.remove(enemyToRemove);
+    }
+
+    @Override
+    public String toString() {
+        return enemyList();
+    }
 }

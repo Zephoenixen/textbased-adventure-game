@@ -27,7 +27,7 @@ public class Enemy {
     public String getName(){
         return name;
     }
-    public String getShortHand(){
+    public String getShorthand(){
         return shortHand;
     }
     public String getDescription(){
